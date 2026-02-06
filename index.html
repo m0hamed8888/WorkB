@@ -11,22 +11,75 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Inline Critical CSS للخطوط -->
+    <!-- Inline Critical CSS للخطوط ومنع CLS -->
     <style>
-        /* Fallback font أول ما الصفحة تحمل */
+        /* Fallback font أول ما الصفحة تحمل - يشبه IBM Plex Sans */
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
         }
         
-        /* لما الخط يحمل، يتطبق هنا */
-        .fonts-loaded body {
-            font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        /* Reserve space للأقسام الرئيسية عشان ميتحولش */
+        .navbar {
+            min-height: 80px;
+        }
+        
+        .hero {
+            min-height: 500px;
+        }
+        
+        /* Reserve space للصور قبل ما تحمل */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Hero image wrapper */
+        .hero-img-wrapper {
+            min-height: 400px;
+            background: #f5f5f5;
+        }
+        
+        /* Product cards - aspect ratio ثابت */
+        .product-card {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 157/175;
+            object-fit: cover;
+        }
+        
+        /* Packaging items */
+        .pack-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pack-item img {
+            width: 157px;
+            height: 175px;
+            object-fit: cover;
+        }
+        
+        /* Footer logo */
+        .footer-logo-box {
+            min-height: 65px;
+        }
+        
+        .footer-logo-box img {
+            width: 220px;
+            height: 65px;
         }
     </style>
 
-    <!-- Preload للخط الرئيسي (غيّر اسم الخط حسب اللي مستخدمه) -->
+    <!-- Preload للخط الرئيسي IBM Plex Sans -->
     <link rel="preload" as="font" 
-          href="https://fonts.gstatic.com/s/yourfont/v23/yourfont.woff2" 
+          href="https://fonts.gstatic.com/s/ibmplexsans/v19/zYXgKVElMYYaJe8bpLHnCwDKhdHeFaxOedc.woff2" 
           type="font/woff2" 
           crossorigin>
 
@@ -160,6 +213,7 @@
     </a>
 
     <!-- C. WHY CHOOSE US & TAB CONTROLLER -->
+     
     <section class="section-padding text-center">
         <div class="container">
             <h2 class="section-title section-title-small">WHY CHOOSE SAPORINA'S PIZZA SAUCE?</h2>
@@ -173,7 +227,7 @@
             <div class="trust-icons">
                 <div class="trust-item">
                     <div class="trust-icon-circle">
-                        <svg viewBox="0 0 24 24" fill="var(--nature-green)" xmlns="http://www.w3.org/2000/svg ">
+                        <svg viewBox="0 0 24 24" fill="var(--nature-green)" xmlns="http://www.w3.org/2000/svg  ">
                             <path
                                 d="M12 2L4 5V11.09C4 16.14 7.41 20.85 12 22C16.59 20.85 20 16.14 20 11.09V5L12 2ZM12 18C9.5 18 7.5 16 7.5 13.5C7.5 11 9.5 9 12 9C14.5 9 16.5 11 16.5 13.5C16.5 16 14.5 18 12 18ZM12 16C13.38 16 14.5 14.88 14.5 13.5C14.5 12.12 13.38 11 12 11C10.62 11 9.5 12.12 9.5 13.5C9.5 14.88 10.62 16 12 16Z" />
                             <path d="M12 6C12 6 13 8 13 10H11C11 8 12 6 12 6Z" fill="white" />
@@ -186,7 +240,7 @@
 
                 <div class="trust-item">
                     <div class="trust-icon-circle">
-                        <svg viewBox="0 0 24 24" fill="var(--nature-green)" xmlns="http://www.w3.org/2000/svg ">
+                        <svg viewBox="0 0 24 24" fill="var(--nature-green)" xmlns="http://www.w3.org/2000/svg  ">
                             <path
                                 d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20Z" />
                             <path d="M12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" />
@@ -199,7 +253,7 @@
 
                 <div class="trust-item">
                     <div class="trust-icon-circle">
-                        <svg viewBox="0 0 24 24" fill="var(--nature-green)" xmlns="http://www.w3.org/2000/svg ">
+                        <svg viewBox="0 0 24 24" fill="var(--nature-green)" xmlns="http://www.w3.org/2000/svg  ">
                             <path
                                 d="M19.14 12.94C19.16 12.78 19.17 12.61 19.17 12.45C19.17 12.29 19.16 12.12 19.14 11.96L21.16 10.39C21.34 10.25 21.39 10.01 21.28 9.81L19.37 6.5C19.25 6.3 19.01 6.22 18.8 6.29L16.42 7.25C15.93 6.87 15.39 6.55 14.81 6.31L14.45 3.77C14.42 3.55 14.23 3.39 14 3.39H10.18C9.95 3.39 9.76 3.55 9.73 3.77L9.37 6.31C8.79 6.55 8.25 6.87 7.76 7.25L5.38 6.29C5.17 6.22 4.93 6.3 4.81 6.5L2.9 9.81C2.79 10.01 2.84 10.25 3.02 10.39L5.04 11.96C5.02 12.12 5.01 12.29 5.01 12.45C5.01 12.61 5.02 12.78 5.04 12.94L3.02 14.51C2.84 14.65 2.79 14.89 2.9 15.09L4.81 18.4C4.93 18.6 5.17 18.68 5.38 18.61L7.76 17.65C8.25 18.03 8.79 18.35 9.37 18.59L9.73 21.13C9.76 21.35 9.95 21.51 10.18 21.51H14C14.23 21.51 14.42 21.35 14.45 21.13L14.81 18.59C15.39 18.35 15.93 18.03 16.42 17.65L18.8 18.61C19.01 18.68 19.25 18.6 19.37 18.4L21.28 15.09C21.39 14.89 21.34 14.65 21.16 14.51L19.14 12.94ZM12.09 15.5C10.41 15.5 9.04 14.14 9.04 12.45C9.04 10.77 10.41 9.4 12.09 9.4C13.77 9.4 15.13 10.77 15.13 12.45C15.13 14.14 13.77 15.5 12.09 15.5Z" />
                         </svg>
@@ -227,7 +281,7 @@
 
                 <div class="content-retail active">
                     <svg id="content-retail-svg" width="100" height="50" viewBox="0 0 160 80" fill="none"
-                        xmlns="http://www.w3.org/2000/svg ">
+                        xmlns="http://www.w3.org/2000/svg  ">
                         <rect width="160" height="80" rx="8" fill="white" />
                         <rect x="10" y="20" width="25" height="40" fill="#038141" rx="4" />
                         <rect x="38" y="25" width="25" height="30" fill="#85BB2F" rx="4" />
@@ -344,7 +398,7 @@
             <div class="tab-content-wrapper">
                 <div class="content-retail flex-active packaging-grid">
                     <div class="pack-item">
-                        <img src="./img-header.webp" loading="lazy" alt="Classic Pizza Sauce A12 Can">
+                        <img src="./img-header.webp" loading="lazy" alt="Classic Pizza Sauce A12 Can" width="157" height="175">
                         <div class="pack-caption">
                             Classic Pizza Sauce<br>
                             A12 Can (4.1 kg)<br>
@@ -691,7 +745,7 @@
                 <div class="product-card">
                     <img 
                         src="img-header.webp"
-                        loading="lazy" alt="Tomato Paste">
+                        loading="lazy" alt="Tomato Paste" width="157" height="175">
                     <div class="product-info">
                         <div class="product-title">Tomato Paste</div>
                         <small class="product-subtitle">28-30% Brix</small>
@@ -699,7 +753,7 @@
                 </div>
                 <div class="product-card">
                     <img  src="img-header.webp"
-                        alt="Passata">
+                        alt="Passata" width="157" height="175">
                     <div class="product-info">
                         <div class="product-title">Tomato Passata</div>
                         <small class="product-subtitle">Velvety Texture</small>
@@ -708,7 +762,7 @@
                 <div class="product-card">
                     <img 
                         src="img-header.webp"
-                        loading="lazy" alt="Peeled Tomato">
+                        loading="lazy" alt="Peeled Tomato" width="157" height="175">
                     <div class="product-info">
                         <div class="product-title">Whole Peeled</div>
                         <small class="product-subtitle">In Juice</small>
@@ -717,7 +771,7 @@
                 <div class="product-card">
                     <img 
                         src="img-header.webp"
-                        loading="lazy" alt="Tomato Powder">
+                        loading="lazy" alt="Tomato Powder" width="157" height="175">
                     <div class="product-info">
                         <div class="product-title">Tomato Powder</div>
                         <small class="product-subtitle">Spray Dried</small>
@@ -741,7 +795,7 @@
             <div class="footer-grid">
                 <div>
                     <div class="footer-logo-box">
-                        <img src="./logo-saporina.webp" loading="lazy" alt="logo Saporina footer">
+                        <img src="./logo-saporina.webp" loading="lazy" alt="logo Saporina footer" width="220" height="65">
                     </div>
                     <p class="footer-tagline">Premium Egyptian Food Manufacturing & Export.</p>
 
