@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saporina - Premium Pizza Sauce</title>
     <meta name="description"
         content="Premium wholesale pizza sauce for Industrial & Horeca applications. Consistent viscosity, rich flavor, and optimized for high-temperature ovens.">
-<!-- Preconnect to Google Fonts -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Preload Fonts.css -->
-<link rel="preload" href="./Fonts.css" as="style" onload="this.rel='stylesheet'">
+    <!-- Preconnect للـ Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Preload other CSS -->
-<link rel="preload" href="./style1.css" as="style" onload="this.rel='stylesheet'">
+    <!-- Inline Critical CSS للخطوط -->
+    <style>
+        /* Fallback font أول ما الصفحة تحمل */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* لما الخط يحمل، يتطبق هنا */
+        .fonts-loaded body {
+            font-family: 'Your Google Font', system-ui, sans-serif;
+        }
+    </style>
 
-<!-- Fallback for no JS -->
-<noscript>
-  <link rel="stylesheet" href="./Fonts.css">
-  <link rel="stylesheet" href="./style1.css">
-</noscript>
+    <!-- Preload للخط الرئيسي (غيّر اسم الخط حسب اللي مستخدمه) -->
+    <link rel="preload" as="font" 
+          href="https://fonts.gstatic.com/s/yourfont/v23/yourfont.woff2" 
+          type="font/woff2" 
+          crossorigin>
 
+    <!-- Preload الـ CSS -->
+    <link rel="preload" href="./Fonts.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="./style1.css" as="style" onload="this.rel='stylesheet'">
 
+    <noscript>
+        <link rel="stylesheet" href="./Fonts.css">
+        <link rel="stylesheet" href="./style1.css">
+    </noscript>
 </head>
 
 <body>
