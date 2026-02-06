@@ -30,7 +30,7 @@
 }
 
 body {
-    font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
     background-color: var(--white);
@@ -56,6 +56,9 @@ ul {
 a:focus-visible, button:focus-visible {
     outline: 2px dashed var(--secondary-blue);
     outline-offset: 4px;
+}
+img {
+  aspect-ratio: 157/175;
 }
 
 .container {
