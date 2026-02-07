@@ -397,6 +397,10 @@ button:focus-visible {
     background: #fff;
     min-height: 400px;
 }
+/* .hero-img-wrapper img{
+    width: 600px;
+    height: 400px;
+} */
 
 /* ============================================
    FLOATING ACTION BUTTON
