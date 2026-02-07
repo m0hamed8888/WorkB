@@ -6,80 +6,9 @@
     <title>Saporina - Premium Pizza Sauce</title>
     <meta name="description"
         content="Premium wholesale pizza sauce for Industrial & Horeca applications. Consistent viscosity, rich flavor, and optimized for high-temperature ovens.">
-
-    <!-- Inline Critical CSS للخطوط ومنع CLS -->
-    <style>
-        /* Fallback font أول ما الصفحة تحمل - يشبه IBM Plex Sans */
-        body {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-        
-        /* Reserve space للأقسام الرئيسية عشان ميتحولش */
-        .navbar {
-            min-height: 80px;
-        }
-        
-        .hero {
-            min-height: 500px;
-        }
-        
-        /* Reserve space للصور قبل ما تحمل */
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        /* Hero image wrapper */
-        .hero-img-wrapper {
-            min-height: 400px;
-            background: #f5f5f5;
-        }
-        
-        /* Product cards - aspect ratio ثابت */
-        .product-card {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-card img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 157/175;
-            object-fit: cover;
-        }
-        
-        /* Packaging items */
-        .pack-item {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .pack-item img {
-            width: 157px;
-            height: 175px;
-            object-fit: cover;
-        }
-        
-        /* Footer logo */
-        .footer-logo-box {
-            min-height: 65px;
-        }
-        
-        .footer-logo-box img {
-            width: 220px;
-            height: 65px;
-        }
-    </style>
-
-
-
-
         <link rel="stylesheet" href="./Fonts.css">
         <link rel="stylesheet" href="./style1.css">
 </head>
-
 <body>
 
     <!-- A. NAVBAR -->
@@ -157,7 +86,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/it/" class="lang-link" data-lang="IT">
+                            <a href="#" class="lang-link" data-lang="IT">
                                 <span class="lang-flag">🇮🇹</span>
                                 <span>Italiano</span>
                             </a>
@@ -185,7 +114,7 @@
                 </div>
 
                 <div class="hero-img-wrapper">
-                    <img src="./img-header.webp" width="600" height="400" alt="Bowl of Pizza Sauce" fetchpriority="high">
+                    <img src="./img-header.webp" width="600" height="400" loading="lazy" alt="Bowl of Pizza Sauce" fetchpriority="high">
                 </div>
             </div>
         </div>
@@ -385,7 +314,7 @@
             <div class="tab-content-wrapper">
                 <div class="content-retail flex-active packaging-grid">
                     <div class="pack-item">
-                        <img src="./img-header.webp" loading="lazy" alt="Classic Pizza Sauce A12 Can" width="157" height="175">
+                        <img src="./img-header.webp" loading="lazy" alt="Classic Pizza Sauce A12 Can" width="157" height="132">
                         <div class="pack-caption">
                             Classic Pizza Sauce<br>
                             A12 Can (4.1 kg)<br>
@@ -393,7 +322,7 @@
                         </div>
                     </div>
                     <div class="pack-item">
-                        <img width="157" height="175" src="./img-header.webp" loading="lazy"
+                        <img width="157" height="132" src="./img-header.webp" loading="lazy"
                             alt="Flavoured Pizza Sauce A12 Can">
                         <div class="pack-caption">
                             Flavoured Pizza Sauce<br>
@@ -405,7 +334,7 @@
 
                 <div class="content-industrial packaging-grid">
                     <div class="pack-item">
-                        <img width="157" height="175"
+                        <img width="157" height="132"
                             src="./img-header.webp"
                             loading="lazy" alt="Aseptic Steel Drum">
                         <div class="pack-caption">
@@ -731,7 +660,7 @@
             <div class="products-grid">
                 <div class="product-card">
                     <img 
-                        src="img-header.webp"
+                        src="./Tomato Paste.webp"
                         loading="lazy" alt="Tomato Paste" width="157" height="175">
                     <div class="product-info">
                         <div class="product-title">Tomato Paste</div>
@@ -739,7 +668,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img  src="img-header.webp"
+                    <img  src="./Tomato Puree (Passata).webp"
                         alt="Passata" width="157" height="175">
                     <div class="product-info">
                         <div class="product-title">Tomato Passata</div>
@@ -748,7 +677,7 @@
                 </div>
                 <div class="product-card">
                     <img 
-                        src="img-header.webp"
+                        src="./Peeled Tomato.webp"
                         loading="lazy" alt="Peeled Tomato" width="157" height="175">
                     <div class="product-info">
                         <div class="product-title">Whole Peeled</div>
@@ -813,14 +742,12 @@
                         <li><a href="#">Anti-bribery Policy</a></li>
                         <li><a href="#">Ethical Trading Initiative</a></li>
                         <li><a href="#">CSR Strategy</a></li>
-                        <li><a href="#">Management Objectives</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4>OUR COMMITMENTS</h4>
                     <ul>
-                        <li><a href="#">Environmental Performance</a></li>
                         <li><a href="#">Equality Plan</a></li>
                         <li><a href="#">Commitment Against Harassment</a></li>
                         <li><a href="#">Responsible Channel</a></li>
@@ -864,126 +791,8 @@
         </div>
     </footer>
 
-    <!-- LOGIC: TAB SWITCHING & SCROLL VISIBILITY -->
-    <script>
-        // ========== TAB SWITCHING ==========
-        function switchTab(mode, event) {
-            // أزرار التابات
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
 
-            // URL hash
-            window.location.hash = mode;
-
-            // إخفاء كل المحتوى
-            document.querySelectorAll('.content-retail, .content-industrial').forEach(el => {
-                el.classList.remove('active', 'flex-active');
-            });
-
-            // إظهار المحتوى المناسب
-            const selector = mode === 'retail' ? '.content-retail' : '.content-industrial';
-            document.querySelectorAll(selector).forEach(el => {
-                el.classList.add(el.classList.contains('packaging-grid') ? 'flex-active' : 'active');
-            });
-        }
-
-        // ========== SCROLL (مُحسّن) ==========
-        let busy = false;
-        window.addEventListener('scroll', function () {
-            if (busy) return;
-            busy = true;
-
-            requestAnimationFrame(function () {
-                const fab = document.querySelector('.fab');
-                const hero = document.querySelector('.hero');
-                const preFooter = document.querySelector('.pre-footer');
-
-                const scrollPos = window.scrollY;
-                const heroBottom = hero.offsetTop + hero.offsetHeight;
-                const preFooterTop = preFooter.offsetTop;
-                const windowHeight = window.innerHeight;
-
-                if (scrollPos > heroBottom && scrollPos < (preFooterTop - windowHeight + 100)) {
-                    fab.classList.add('visible');
-                } else {
-                    fab.classList.remove('visible');
-                }
-
-                busy = false;
-            });
-        });
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const drawer = document.getElementById('navDrawer');
-            const overlay = document.getElementById('navOverlay');
-            const toggle = document.querySelector('.menu-toggle');
-
-            drawer.classList.toggle('active');
-            overlay.classList.toggle('active');
-            toggle.classList.toggle('active');
-
-            // منع السكرول لما يكون الـ Menu مفتوح
-            if (drawer.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        }
-
-
-        // إقفال المنيو لما تضغط على لينك
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (document.getElementById('navDrawer').classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
-        });
-
-        // إقفال بـ ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && document.getElementById('navDrawer').classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-
-        // ========== LANGUAGE DROPDOWN ==========
-        function toggleLang() {
-            document.getElementById('langDropdown').classList.toggle('active');
-        }
-
-        // إقفال لما تضغط بره
-        document.addEventListener('click', function (e) {
-            const dropdown = document.getElementById('langDropdown');
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
-
-        // ========== LOAD ==========
-        window.addEventListener('DOMContentLoaded', function () {
-            // شيك الـ hash
-            if (window.location.hash === '#industrial') {
-                const btn = document.querySelector('.tab-btn:nth-child(2)');
-                if (btn) btn.click();
-            }
-
-            // حدد اللغة
-            const path = window.location.pathname;
-            const langMap = { '/en/': 'EN', '/ar/': 'AR', '/fr/': 'FR', '/de/': 'DE', '/es/': 'ES', '/it/': 'IT' };
-            let currentLang = 'EN';
-
-            for (let [url, code] of Object.entries(langMap)) {
-                if (path.startsWith(url)) currentLang = code;
-            }
-
-            document.getElementById('currentLang').textContent = currentLang;
-            document.querySelectorAll('.lang-link').forEach(link => {
-                link.classList.toggle('active', link.dataset.lang === currentLang);
-            });
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 
 </html>
