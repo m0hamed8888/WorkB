@@ -8,15 +8,15 @@
     <meta name="description"
         content="Premium wholesale pizza sauce for Industrial & Horeca applications. Consistent viscosity, rich flavor, and optimized for high-temperature ovens.">
 
-    <link  rel="stylesheet" href="./Fonts.css">
+    <link rel="stylesheet" href="./Fonts.css">
     <link rel="stylesheet" href="./style1.css">
 </head>
 
 <body>
 
     <!-- A. NAVBAR -->
-    <nav class="navbar">
-        <div class="container nav-container">
+    <header class="navbar">
+        <nav class="container nav-container">
             <!-- اللوجو -->
             <a href="#">
                 <img src="./logo-saporina-border.webp" loading="lazy" width="220" height="65" class="logo-saporina"
@@ -101,13 +101,13 @@
 
             <!-- Overlay لما يفتح الـ Drawer -->
             <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- B. HERO SECTION -->
     <section class="hero">
         <div class="container">
-            <div class="breadcrumbs">Home &gt; Tomato Products &amp; Sauces &gt; Pizza Sauce</div>
+            <nav class="breadcrumbs" aria-label="Breadcrumb">Home &gt; Tomato Products &amp; Sauces &gt; Pizza Sauce</nav>
 
             <div class="hero-grid">
                 <div>
@@ -117,16 +117,16 @@
                     <button class="btn">Request a Quote</button>
                 </div>
 
-                <div class="hero-img-wrapper">
+                <figure class="hero-img-wrapper">
                     <img src="./img-header.webp" width="600" height="400" alt="Bowl of Pizza Sauce"
-                    fetchpriority="high"   >
-                </div>
+                        fetchpriority="high">
+                </figure>
             </div>
         </div>
     </section>
 
     <!-- Floating Action Button -->
-    <a href="#" class="fab">
+    <a href="#" class="fab" aria-label="Contact us">
         <svg viewBox="0 0 24 24">
             <path
                 d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
@@ -146,7 +146,7 @@
 
             <!-- Trust Icons -->
             <div class="trust-icons">
-                <div class="trust-item">
+                <article class="trust-item">
                     <div class="trust-icon-circle">
                         <svg viewBox="0 0 24 24" fill="var(--nature-green)" xmlns="http://www.w3.org/2000/svg  ">
                             <path
@@ -154,12 +154,12 @@
                             <path d="M12 6C12 6 13 8 13 10H11C11 8 12 6 12 6Z" fill="white" />
                         </svg>
                     </div>
-                    <span class="trust-item-title">100% Natural</span>
+                    <h3 class="trust-item-title">100% Natural</h3>
                     <p class="trust-item-description">Free from GMOs, artificial colors, and preservatives. Just pure
                         tomato goodness.</p>
-                </div>
+                </article>
 
-                <div class="trust-item">
+                <article class="trust-item">
                     <div class="trust-icon-circle">
                         <svg viewBox="0 0 24 24" fill="var(--nature-green)" xmlns="http://www.w3.org/2000/svg  ">
                             <path
@@ -167,29 +167,29 @@
                             <path d="M12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" />
                         </svg>
                     </div>
-                    <span class="trust-item-title">24h Harvest</span>
+                    <h3 class="trust-item-title">24h Harvest</h3>
                     <p class="trust-item-description">Tomatoes are processed within 24 hours of harvest to lock in
                         maximum freshness.</p>
-                </div>
+                </article>
 
-                <div class="trust-item">
+                <article class="trust-item">
                     <div class="trust-icon-circle">
                         <svg viewBox="0 0 24 24" fill="var(--nature-green)" xmlns="http://www.w3.org/2000/svg  ">
                             <path
                                 d="M19.14 12.94C19.16 12.78 19.17 12.61 19.17 12.45C19.17 12.29 19.16 12.12 19.14 11.96L21.16 10.39C21.34 10.25 21.39 10.01 21.28 9.81L19.37 6.5C19.25 6.3 19.01 6.22 18.8 6.29L16.42 7.25C15.93 6.87 15.39 6.55 14.81 6.31L14.45 3.77C14.42 3.55 14.23 3.39 14 3.39H10.18C9.95 3.39 9.76 3.55 9.73 3.77L9.37 6.31C8.79 6.55 8.25 6.87 7.76 7.25L5.38 6.29C5.17 6.22 4.93 6.3 4.81 6.5L2.9 9.81C2.79 10.01 2.84 10.25 3.02 10.39L5.04 11.96C5.02 12.12 5.01 12.29 5.01 12.45C5.01 12.61 5.02 12.78 5.04 12.94L3.02 14.51C2.84 14.65 2.79 14.89 2.9 15.09L4.81 18.4C4.93 18.6 5.17 18.68 5.38 18.61L7.76 17.65C8.25 18.03 8.79 18.35 9.37 18.59L9.73 21.13C9.76 21.35 9.95 21.51 10.18 21.51H14C14.23 21.51 14.42 21.35 14.45 21.13L14.81 18.59C15.39 18.35 15.93 18.03 16.42 17.65L18.8 18.61C19.01 18.68 19.25 18.6 19.37 18.4L21.28 15.09C21.39 14.89 21.34 14.65 21.16 14.51L19.14 12.94ZM12.09 15.5C10.41 15.5 9.04 14.14 9.04 12.45C9.04 10.77 10.41 9.4 12.09 9.4C13.77 9.4 15.13 10.77 15.13 12.45C15.13 14.14 13.77 15.5 12.09 15.5Z" />
                         </svg>
                     </div>
-                    <span class="trust-item-title">Advanced Tech</span>
+                    <h3 class="trust-item-title">Advanced Tech</h3>
                     <p class="trust-item-description">State-of-the-art thermal processing ensures consistent texture and
                         food safety.</p>
-                </div>
+                </article>
             </div>
 
             <!-- Tab Buttons -->
-            <div class="tab-controller">
-                <button class="tab-btn active" onclick="switchTab('retail' , event)">Retail & HORECA</button>
-                <button class="tab-btn" onclick="switchTab('industrial', event)">Industrial & Bulk</button>
-            </div>
+            <nav class="tab-controller" role="tablist" aria-label="Product categories">
+                <button class="tab-btn active" onclick="switchTab('retail' , event)" role="tab" aria-selected="true">Retail & HORECA</button>
+                <button class="tab-btn" onclick="switchTab('industrial', event)" role="tab" aria-selected="false">Industrial & Bulk</button>
+            </nav>
         </div>
     </section>
 
@@ -197,12 +197,12 @@
     <section class="section-padding specs-section">
         <div class="container">
 
-            <div class="ingredients-header">
-                <h3 class="section-title section-title-small mb-0">INGREDIENTS:</h3>
+            <header class="ingredients-header">
+                <h2 class="section-title section-title-small mb-0">INGREDIENTS:</h2>
 
                 <div class="content-retail active">
                     <svg id="content-retail-svg" width="100" height="50" viewBox="0 0 160 80" fill="none"
-                        xmlns="http://www.w3.org/2000/svg  ">
+                        xmlns="http://www.w3.org/2000/svg  " role="img" aria-label="Nutri-Score A">
                         <rect width="160" height="80" rx="8" fill="white" />
                         <rect x="10" y="20" width="25" height="40" fill="#038141" rx="4" />
                         <rect x="38" y="25" width="25" height="30" fill="#85BB2F" rx="4" />
@@ -220,7 +220,7 @@
                     <span class="badge">HACCP Compliant</span>
                     <span class="badge">Aseptic Filled</span>
                 </div>
-            </div>
+            </header>
 
             <div class="tab-content-wrapper">
                 <div class="content-retail active">
@@ -314,38 +314,38 @@
     <!-- 3. AVAILABLE PACKAGING -->
     <section class="section-padding">
         <div class="container">
-            <h3 class="section-title section-title-small">AVAILABLE PACKAGING:</h3>
+            <h2 class="section-title section-title-small">AVAILABLE PACKAGING:</h2>
 
             <div class="tab-content-wrapper">
                 <div class="content-retail flex-active packaging-grid">
-                    <div class="pack-item">
+                    <figure class="pack-item">
                         <img src="./img-header.webp" loading="lazy" alt="Classic Pizza Sauce A12 Can" width="157"
                             height="132">
-                        <div class="pack-caption">
+                        <figcaption class="pack-caption">
                             Classic Pizza Sauce<br>
                             A12 Can (4.1 kg)<br>
                             <small>3 Cans per Carton</small>
-                        </div>
-                    </div>
-                    <div class="pack-item">
+                        </figcaption>
+                    </figure>
+                    <figure class="pack-item">
                         <img width="157" height="132" src="./img-header.webp" loading="lazy"
                             alt="Flavoured Pizza Sauce A12 Can">
-                        <div class="pack-caption">
+                        <figcaption class="pack-caption">
                             Flavoured Pizza Sauce<br>
                             A12 Can (4.1 kg)<br>
                             <small>3 Cans per Carton</small>
-                        </div>
-                    </div>
+                        </figcaption>
+                    </figure>
                 </div>
 
                 <div class="content-industrial packaging-grid">
-                    <div class="pack-item">
+                    <figure class="pack-item">
                         <img width="157" height="132" src="./img-header.webp" loading="lazy" alt="Aseptic Steel Drum">
-                        <div class="pack-caption">
+                        <figcaption class="pack-caption">
                             Steel Drum (210kg)<br>
                             <small>Aseptic Bag in Drum</small>
-                        </div>
-                    </div>
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
         </div>
@@ -354,7 +354,7 @@
     <!-- 4. STORAGE & LOGISTICS -->
     <section class="section-padding allergens-section">
         <div class="container">
-            <h3 class="section-title section-title-small">STORAGE & LOGISTICS:</h3>
+            <h2 class="section-title section-title-small">STORAGE & LOGISTICS:</h2>
 
             <div class="tab-content-wrapper storage-content">
                 <div class="content-retail active">
@@ -383,9 +383,9 @@
     <!-- 5. PRIVATE LABELLING SERVICES -->
     <section class="section-padding private-labelling-section content-retail active">
         <div class="container">
-            <div class="private-labelling-grid">
+            <article class="private-labelling-grid">
                 <div class="private-labelling-content">
-                    <h3 class="section-title section-title-small mb-15">PRIVATE LABELLING SERVICES:</h3>
+                    <h2 class="section-title section-title-small mb-15">PRIVATE LABELLING SERVICES:</h2>
                     <p class="private-labelling-description">
                         Build your brand with Saporina's comprehensive OEM solutions. We offer end-to-end support for
                         retailers, distributors, and HORECA chains looking to launch their own pizza sauce line.
@@ -411,101 +411,101 @@
                     </ul>
                 </div>
 
-                <div class="private-labelling-graphic">
-                    <svg viewBox="0 0 24 24">
+                <figure class="private-labelling-graphic">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M18 17H6V15H18V17ZM18 13H6V11H18V13ZM18 9H6V7H18V9ZM3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3H5C3.9 3 3 3.9 3 5ZM5 5H19V19H5V5Z" />
                     </svg>
-                </div>
-            </div>
+                </figure>
+            </article>
         </div>
     </section>
 
     <!-- 6. FOOD TOLERANCE & ALLERGENS -->
     <section class="section-padding">
         <div class="container">
-            <h3 class="section-title section-title-small">FOOD TOLERANCE & ALLERGENS:</h3>
+            <h2 class="section-title section-title-small">FOOD TOLERANCE & ALLERGENS:</h2>
 
             <div class="allergen-row">
-                <div class="allergen-icon">
-                    <svg viewBox="0 0 24 24">
+                <article class="allergen-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                     </svg>
                     <span>Non-GMO</span>
-                </div>
+                </article>
 
-                <div class="allergen-icon">
-                    <svg viewBox="0 0 24 24">
+                <article class="allergen-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M17 8C8 10 5.9 16.17 3.82 21.34 5.71 20.73 7.5 20 9 20c2.5 0 5-1.5 5-1.5S15 20 18.5 22c0-5-3.5-9-3.5-9s2.5 0 2.5-4C17.5 9 17 8 17 8z" />
                         <path d="M16.5 4c0 2-2.5 4-2.5 4S16.5 6 19 6C20.5 6 21.5 5 21.5 5s-1.5-1-5-1z" />
                     </svg>
                     <span>Vegan</span>
-                </div>
+                </article>
 
-                <div class="allergen-icon">
-                    <svg viewBox="0 0 24 24">
+                <article class="allergen-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M12.71 2h-1.42L8.5 12l2.79 5.58 3.5-1.75 3.5 1.75 2.79-5.58L18.29 2h-1.42l-1.37 5.48L12.71 2zm-1.12 11.29l1.41 2.82-2.12 1.06-1.41-2.82 2.12-1.06zM6 4v16h2V4H6zm-4 8h2v8H2v-8z" />
                     </svg>
                     <span>Gluten-Free</span>
-                </div>
+                </article>
 
-                <div class="allergen-icon">
-                    <svg viewBox="0 0 24 24">
+                <article class="allergen-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M18.8 17l1.1-1.1c.4-.4.4-1 0-1.4l-3.5-3.5c-.4-.4-1-.4-1.4 0l-1.1 1.1L12.5 10c-.3-.3-.3-.8 0-1.1l3.5-3.5c.3-.3.8-.3 1.1 0l1.1 1.1c.4.4 1 .4 1.4 0l3.5-3.5c.4-.4.4-1 0-1.4L21.9 .5c-.7-.7-1.8-.7-2.5 0l-3.5 3.5c-.4.4-.4 1 0 1.4l1.1 1.1L15.6 8c-.3.3-.3.8 0 1.1l-3.5 3.5c-.3.3-.8.3-1.1 0l-1.1-1.1c-.4-.4-1-.4-1.4 0l-3.5 3.5c-.4.4-.4 1 0 1.4l1.1 1.1c.4.4 1 .4 1.4 0l3.5-3.5c.4-.4.4-1 0-1.4L12.5 14c.3-.3.3-.8 0-1.1l3.5-3.5c.3-.3.8-.3 1.1 0l1.1 1.1c.4.4 1 .4 1.4 0l.2-.2zM4 22h10v-2H4v2zm0-4h10v-2H4v2zm0-4h6v-2H4v2z" />
                     </svg>
                     <span>Dairy-Free</span>
-                </div>
+                </article>
 
-                <div class="allergen-icon">
+                <article class="allergen-icon">
                     <div class="allergen-badge-halal">HALAL</div>
                     <span>Halal</span>
-                </div>
+                </article>
 
-                <div class="allergen-icon">
+                <article class="allergen-icon">
                     <div class="allergen-badge-kosher">K</div>
                     <span>Kosher</span>
-                </div>
+                </article>
 
-                <div class="allergen-icon">
-                    <svg viewBox="0 0 24 24">
+                <article class="allergen-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                     </svg>
                     <span>Keto</span>
-                </div>
+                </article>
             </div>
 
-            <div class="allergen-certification-box">
-                <h5 class="allergen-certification-title">Certified Free From the 14 Major Food Allergens</h5>
+            <aside class="allergen-certification-box">
+                <h3 class="allergen-certification-title">Certified Free From the 14 Major Food Allergens</h3>
 
                 <div class="allergen-certification-content">
                     <div class="allergen-14-grid">
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#E6B800">
+                            <svg viewBox="0 0 24 24" fill="#E6B800" aria-hidden="true">
                                 <path d="M12 2C12 2 14 6 14 10C14 14 12 22 12 22C12 22 10 14 10 10C10 6 12 2 12 2Z" />
                                 <path d="M12 22V24" />
                             </svg>
                             <span>Gluten</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#D32F2F">
+                            <svg viewBox="0 0 24 24" fill="#D32F2F" aria-hidden="true">
                                 <path
                                     d="M12 2L9 6H15L12 2M3 10C3 10 4 8 6 8C8 8 9 10 9 10H15C15 10 16 8 18 8C20 8 21 10 21 10V14C21 18 17 20 12 20C7 20 3 18 3 14V10Z" />
                             </svg>
                             <span>Crustaceans</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#FDD835">
+                            <svg viewBox="0 0 24 24" fill="#FDD835" aria-hidden="true">
                                 <path d="M12 2C8 2 5 6 5 12C5 18 8 22 12 22C16 22 19 18 19 12C19 6 16 2 12 2Z" />
                             </svg>
                             <span>Eggs</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#1976D2">
+                            <svg viewBox="0 0 24 24" fill="#1976D2" aria-hidden="true">
                                 <path
                                     d="M21 12C21 12 19 14 16 14C12 14 10 12 10 12C10 12 12 10 16 10C19 10 21 12 21 12ZM3 12L7 9V15L3 12Z" />
                                 <ellipse cx="14" cy="12" rx="7" ry="4" />
@@ -513,55 +513,55 @@
                             <span>Fish</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#795548">
+                            <svg viewBox="0 0 24 24" fill="#795548" aria-hidden="true">
                                 <path
                                     d="M12 4C10 4 8 6 8 9C8 10.5 9 11.5 10 12C9 12.5 8 13.5 8 15C8 18 10 20 12 20C14 20 16 18 16 15C16 13.5 15 12.5 14 12C15 11.5 16 10.5 16 9C16 6 14 4 12 4Z" />
                             </svg>
                             <span>Peanuts</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#388E3C">
+                            <svg viewBox="0 0 24 24" fill="#388E3C" aria-hidden="true">
                                 <path d="M12 2C10 4 6 10 6 15C6 19 9 22 12 22C15 22 18 19 18 15C18 10 14 4 12 2Z" />
                                 <circle cx="12" cy="12" r="2" fill="#fff" opacity="0.5" />
                             </svg>
                             <span>Soy</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#03A9F4">
+                            <svg viewBox="0 0 24 24" fill="#03A9F4" aria-hidden="true">
                                 <path d="M9 2H15V6H9V2ZM7 7H17L18 22H6L7 7Z" />
                             </svg>
                             <span>Milk</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#8D6E63">
+                            <svg viewBox="0 0 24 24" fill="#8D6E63" aria-hidden="true">
                                 <path
                                     d="M12 2C7 2 4 7 4 11C4 16 8 22 12 22C16 22 20 16 20 11C20 7 17 2 12 2ZM12 4C15 4 17 7 17 10H7C7 7 9 4 12 4Z" />
                             </svg>
                             <span>Nuts</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#4CAF50">
+                            <svg viewBox="0 0 24 24" fill="#4CAF50" aria-hidden="true">
                                 <path
                                     d="M8 22H16V10C16 10 19 4 19 2H15C15 4 14 8 14 8S13 4 13 2H11C11 4 10 8 10 8S9 4 9 2H5C5 4 8 10 8 10V22Z" />
                             </svg>
                             <span>Celery</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#FFC107">
+                            <svg viewBox="0 0 24 24" fill="#FFC107" aria-hidden="true">
                                 <path d="M7 6H17V9H7V6ZM6 10H18V22H6V10Z" />
                                 <path d="M8 2H16V5H8V2Z" />
                             </svg>
                             <span>Mustard</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#A1887F">
+                            <svg viewBox="0 0 24 24" fill="#A1887F" aria-hidden="true">
                                 <ellipse cx="12" cy="12" rx="6" ry="9" />
                                 <path d="M12 5V8M10 12H14" stroke="#fff" stroke-width="2" />
                             </svg>
                             <span>Sesame</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#607D8B">
+                            <svg viewBox="0 0 24 24" fill="#607D8B" aria-hidden="true">
                                 <path d="M12 2L8 8H16L12 2ZM8 9L6 22H18L16 9H8Z" /><text x="12" y="19"
                                     text-anchor="middle" fill="#fff" font-size="8" font-family="Arial"
                                     font-weight="bold">SO2</text>
@@ -569,7 +569,7 @@
                             <span>Sulphites</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#E91E63">
+                            <svg viewBox="0 0 24 24" fill="#E91E63" aria-hidden="true">
                                 <path d="M12 22V12M12 12L7 6M12 12L17 6M12 12L5 15M12 12L19 15" stroke="#E91E63"
                                     stroke-width="3" />
                                 <circle cx="12" cy="12" r="2" fill="#E91E63" />
@@ -577,7 +577,7 @@
                             <span>Lupin</span>
                         </div>
                         <div class="allergen-14-item">
-                            <svg viewBox="0 0 24 24" fill="#FF9800">
+                            <svg viewBox="0 0 24 24" fill="#FF9800" aria-hidden="true">
                                 <path
                                     d="M12 4C7 4 3 8 3 13C3 18 7 22 12 22C17 22 21 18 21 13C21 8 17 4 12 4ZM12 20C9 20 6 17 6 13C6 10 9 7 12 7V20Z" />
                             </svg>
@@ -586,21 +586,21 @@
                     </div>
 
                     <div class="allergen-free-badge">
-                        <svg viewBox="0 0 24 24">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path
                                 d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                         </svg>
                         <span class="allergen-free-text">ALLERGEN FREE</span>
                     </div>
                 </div>
-            </div>
+            </aside>
         </div>
     </section>
 
     <!-- 7. NUTRITIONAL INFORMATION (Per 100g) -->
     <section class="section-padding nutrition-section content-retail active">
         <div class="container">
-            <h3 class="section-title section-title-small">NUTRITIONAL INFORMATION (Per 100g):</h3>
+            <h2 class="section-title section-title-small">NUTRITIONAL INFORMATION (Per 100g):</h2>
             <div class="tech-table-wrapper">
                 <table class="tech-table">
                     <thead>
@@ -662,34 +662,34 @@
         <div class="container">
             <h2 class="section-title section-title-small">DISCOVER OTHER PRODUCTS:</h2>
             <div class="products-grid">
-                <div class="product-card">
+                <article class="product-card">
                     <img src="./Tomato Paste.webp" loading="lazy" alt="Tomato Paste" width="157" height="175">
                     <div class="product-info">
-                        <div class="product-title">Tomato Paste</div>
-                        <small class="product-subtitle">28-30% Brix</small>
+                        <h3 class="product-title">Tomato Paste</h3>
+                        <p class="product-subtitle">28-30% Brix</p>
                     </div>
-                </div>
-                <div class="product-card">
+                </article>
+                <article class="product-card">
                     <img src="./Tomato Puree (Passata).webp" alt="Passata" width="157" height="175">
                     <div class="product-info">
-                        <div class="product-title">Tomato Passata</div>
-                        <small class="product-subtitle">Velvety Texture</small>
+                        <h3 class="product-title">Tomato Passata</h3>
+                        <p class="product-subtitle">Velvety Texture</p>
                     </div>
-                </div>
-                <div class="product-card">
+                </article>
+                <article class="product-card">
                     <img src="./Peeled Tomato.webp" loading="lazy" alt="Peeled Tomato" width="157" height="175">
                     <div class="product-info">
-                        <div class="product-title">Whole Peeled</div>
-                        <small class="product-subtitle">In Juice</small>
+                        <h3 class="product-title">Whole Peeled</h3>
+                        <p class="product-subtitle">In Juice</p>
                     </div>
-                </div>
-                <div class="product-card">
+                </article>
+                <article class="product-card">
                     <img src="img-header.webp" loading="lazy" alt="Tomato Powder" width="157" height="175">
                     <div class="product-info">
-                        <div class="product-title">Tomato Powder</div>
-                        <small class="product-subtitle">Spray Dried</small>
+                        <h3 class="product-title">Tomato Powder</h3>
+                        <p class="product-subtitle">Spray Dried</p>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -713,51 +713,58 @@
                     </div>
                     <p class="footer-tagline">Premium Egyptian Food Manufacturing & Export.</p>
 
-                    <div class="social-row">
-                        <a href="#" class="social-btn"><svg viewBox="0 0 24 24">
-                                <path
-                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-                            </svg></a>
-                        <a href="#" class="social-btn"><svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9V12.06h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.93h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z" />
-                            </svg></a>
-                        <a href="#" class="social-btn"><svg viewBox="0 0 24 24">
-                                <path
-                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
-                            </svg></a>
-                        <a href="#" class="social-btn"><svg viewBox="0 0 24 24">
-                                <path
-                                    d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23z" />
-                            </svg></a>
-                    </div>
+                    <nav class="social-row" aria-label="Social media links">
+    <a href="#" class="social-btn" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+        </svg>
+    </a>
+
+    <a href="#" class="social-btn" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9V12.06h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.93h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z" />
+        </svg>
+    </a>
+
+    <a href="#" class="social-btn" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+        </svg>
+    </a>
+
+    <a href="#" class="social-btn" aria-label="Twitter">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23z" />
+        </svg>
+    </a>
+</nav>
                 </div>
 
-                <div>
-                    <h4>CORPORATE POLICIES</h4>
+                <nav>
+                    <h3>CORPORATE POLICIES</h3>
                     <ul>
                         <li><a href="#">Business Code of Conduct</a></li>
                         <li><a href="#">Anti-bribery Policy</a></li>
                         <li><a href="#">Ethical Trading Initiative</a></li>
                         <li><a href="#">CSR Strategy</a></li>
                     </ul>
-                </div>
+                </nav>
 
-                <div>
-                    <h4>OUR COMMITMENTS</h4>
+                <nav>
+                    <h3>OUR COMMITMENTS</h3>
                     <ul>
                         <li><a href="#">Equality Plan</a></li>
                         <li><a href="#">Commitment Against Harassment</a></li>
                         <li><a href="#">Responsible Channel</a></li>
                         <li><a href="#">Corporate Policy</a></li>
                     </ul>
-                </div>
+                </nav>
 
-                <div>
-                    <h4>SALES OFFICE</h4>
+                <address>
+                    <h3>SALES OFFICE</h3>
 
                     <div class="footer-contact-item">
-                        <svg class="icon footer-contact-icon" viewBox="0 0 24 24">
+                        <svg class="icon footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path
                                 d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                         </svg>
@@ -767,7 +774,7 @@
                     </div>
 
                     <div class="footer-contact-item">
-                        <svg class="icon footer-contact-icon" viewBox="0 0 24 24">
+                        <svg class="icon footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path
                                 d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
                         </svg>
@@ -775,16 +782,16 @@
                             Sun - Thu: 8:00 AM - 5:00 PM<br>(GMT+2)
                         </div>
                     </div>
-                </div>
+                </address>
             </div>
 
             <div class="footer-bottom">
-                <div>&copy; 2026 Saporina. All rights reserved.</div>
-                <div class="footer-links">
+                <p>&copy; 2026 Saporina. All rights reserved.</p>
+                <nav class="footer-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Use</a>
                     <a href="#">Cookies</a>
-                </div>
+                </nav>
             </div>
         </div>
     </footer>
