@@ -187,6 +187,7 @@ button:focus-visible {
 
 .nav-menu {
     display: flex;
+    align-items: center;
     list-style: none;
     gap: 30px;
     margin: 0;
@@ -201,6 +202,13 @@ button:focus-visible {
     padding: 10px 0;
     position: relative;
     transition: color 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .nav-link::after {
@@ -222,6 +230,91 @@ button:focus-visible {
 .nav-link:hover::after,
 .nav-link.active::after {
     width: 100%;
+}
+
+/* Products Dropdown Styling */
+.nav-item-dropdown {
+    position: relative;
+}
+
+.products-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+}
+
+.products-arrow {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+.nav-item-dropdown.active .products-arrow {
+    transform: rotate(180deg);
+}
+
+.products-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    padding: 20px;
+    min-width: 1000px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-10px);
+    transition: all 0.4s ease-in-out;
+    z-index: 1001;
+}
+
+.nav-item-dropdown.active .products-dropdown {
+    opacity: 1;
+    visibility: visible;
+    /* transform: translateX(-50%) translateY(0); */
+    transform: translateX(-50%) translateY(0); 
+
+}
+
+.products-grid-menu {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.product-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.product-menu-item:hover {
+    background: var(--bg-grey);
+    transform: translateY(-3px);
+}
+
+.product-menu-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-menu-item span {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--primary-blue);
 }
 
 /* Mobile Menu Toggle */
@@ -1150,8 +1243,8 @@ button:focus-visible {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 70%;
-        max-width: 300px;
+        width: 100%;
+        max-width: 490px;
         height: 100vh;
         background: white;
         flex-direction: column;
@@ -1160,7 +1253,7 @@ button:focus-visible {
         transition: right 0.3s ease;
         z-index: 999;
         box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-        overflow-x: auto;
+        overflow-y: auto;
     }
 
     .nav-drawer.active {
@@ -1181,6 +1274,8 @@ button:focus-visible {
         display: block;
         padding: 20px 0;
         font-size: var(--fs-base);
+        width: 100%;
+        text-align: center;
     }
 
     .nav-link::after {
@@ -1198,6 +1293,37 @@ button:focus-visible {
 
     .menu-toggle.active .hamburger:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Products Dropdown - Mobile */
+    .products-dropdown {
+        top: 0px;
+        position: relative;
+        transform: none;
+        margin-top: 10px;
+        box-shadow: none;
+        border: 1px solid #eee;
+        min-width: auto;
+        width: 100%;
+        max-height: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .nav-item-dropdown.active .products-dropdown {
+        max-height: 500px;
+        padding: 15px;
+        overflow-y: auto;
+    }
+
+    .products-grid-menu {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .product-menu-item img {
+        width: 135px;
+        height: 120px;
     }
 
     /* Language Dropdown */
@@ -1218,7 +1344,7 @@ button:focus-visible {
         transform: none;
         box-shadow: none;
         border: 1px solid #eee;
-        margin-top: 10px;
+        margin: 10px 0;
         display: none;
     }
 
@@ -1249,6 +1375,10 @@ button:focus-visible {
         grid-template-columns: 1fr;
     }
 
+    /* Products Grid - Tablet */
+    .products-grid-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     /* Allergens */
     .allergen-14-grid {
@@ -1353,5 +1483,12 @@ button:focus-visible {
     .logo-saporina {
         width: 140px;
         height: auto;
+    }
+
+    .products-grid-menu {
+        grid-template-columns: 1fr;
+    }
+    .nav-drawer {
+        max-width: 320px;
     }
 }
