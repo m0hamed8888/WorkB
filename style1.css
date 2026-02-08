@@ -164,6 +164,7 @@ button:focus-visible {
     z-index: 1000;
     padding: 10px 0;
     min-height: 80px;
+    display: flex;
 }
 
 .nav-container {
@@ -390,16 +391,16 @@ button:focus-visible {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    /* box-shadow: 0 20px 40px rgba(0,0,0,0.3); */
     display: flex;
     justify-content: center;
-    background: #fff;
-    min-height: 400px;
+    /* background: #fff; */
+    /* min-height: 400px; */
 }
-/* .hero-img-wrapper img{
-    width: 600px;
-    height: 400px;
-} */
+.hero-img-wrapper img{
+    width: 350px;
+    height: 300px;
+}
 
 /* ============================================
    FLOATING ACTION BUTTON
@@ -613,9 +614,7 @@ button:focus-visible {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
     flex-wrap: wrap;
-    gap: 20px;
     position: relative;
     min-height: 80px;
 }
@@ -631,7 +630,7 @@ button:focus-visible {
 }
 
 .ingredients-text p {
-    margin: 10px 0;
+    margin: 0px 0 15px 0 ;
 }
 
 .badge {
@@ -645,7 +644,7 @@ button:focus-visible {
     border: 1px solid var(--nature-green);
     position: absolute;
     right: 0;
-    top: 60px;
+    top: -25px;
     white-space: nowrap;
 }
 
@@ -656,7 +655,7 @@ button:focus-visible {
 .content-retail > svg {
     position: absolute;
     right: 0;
-    top: 0;
+    top: -25px;
     width: 100px;
     height: 50px;
 }
@@ -1043,9 +1042,12 @@ button:focus-visible {
     color: var(--accent-yellow);
     opacity: 1;
 }
+.footer-title {
+    color: var(--accent-yellow);
+    padding: 1rem 0;
+}
 
 .footer-logo-box {
-    background-color: white;
     padding: 10px 15px;
     border-radius: 8px;
     display: inline-block;
@@ -1121,7 +1123,7 @@ button:focus-visible {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    font-size: var(--fs-xs);
+    font-size: var(--fs-sm);
     opacity: 0.6;
     text-align: center;
 }
@@ -1229,17 +1231,12 @@ button:focus-visible {
     }
 
     /* Ingredients */
-    .badge {
-        top: -10px;
-    }
+
     
     .content-retail > svg {
         top: -45px;
     }
-    
-    .ingredients-text {
-        margin-top: 40px;
-    }
+
 }
 
 @media (max-width: 768px) {
@@ -1264,14 +1261,16 @@ button:focus-visible {
 
     /* Footer */
     .footer-bottom {
-        flex-direction: row;
         justify-content: space-between;
         text-align: left;
     }
     
     .footer-links a {
-        margin-left: 20px;
         margin-right: 0;
+    }
+    .hero-img-wrapper img{
+        width: 250px;
+        height: 200px;
     }
 }
 
@@ -1297,13 +1296,15 @@ button:focus-visible {
         flex-direction: column;
         align-items: flex-start;
     }
+    .content-retail {
+                margin-top: 30px;
+    }
     
     .content-retail,
     .content-industrial {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        margin-top: 10px;
         position: static;
         width: 100%;
     }
@@ -1311,7 +1312,7 @@ button:focus-visible {
     .content-retail > svg {
         position: static;
         order: -1;
-        margin-bottom: 10px;
+        margin-bottom: 0;
     }
     
     .badge {
