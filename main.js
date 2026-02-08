@@ -20,6 +20,34 @@
             });
         }
 
+        // ========== PRODUCTS DROPDOWN TOGGLE ==========
+        function toggleProducts(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const dropdown = document.querySelector('.nav-item-dropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // إقفال Products Dropdown لما تضغط بره
+        document.addEventListener('click', function(e) {
+            const dropdown = document.querySelector('.nav-item-dropdown');
+            const productsToggle = document.querySelector('.products-toggle');
+            
+            if (dropdown && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // منع إقفال الـ Dropdown لما تضغط جواه
+        document.addEventListener('DOMContentLoaded', function() {
+            const productsDropdown = document.querySelector('.products-dropdown');
+            if (productsDropdown) {
+                productsDropdown.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
+        });
+
         // ========== SCROLL (مُحسّن) ==========
         let busy = false;
         window.addEventListener('scroll', function () {
@@ -45,7 +73,8 @@
                 busy = false;
             });
         });
-        // Mobile Menu Toggle
+
+        // ========== MOBILE MENU TOGGLE ==========
         function toggleMenu() {
             const drawer = document.getElementById('navDrawer');
             const overlay = document.getElementById('navOverlay');
@@ -63,20 +92,31 @@
             }
         }
 
-
         // إقفال المنيو لما تضغط على لينك
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (document.getElementById('navDrawer').classList.contains('active')) {
-                    toggleMenu();
+            link.addEventListener('click', (e) => {
+                // ما نقفلش المنيو لو كان الـ Products Toggle
+                if (!link.classList.contains('products-toggle')) {
+                    if (document.getElementById('navDrawer').classList.contains('active')) {
+                        toggleMenu();
+                    }
                 }
             });
         });
 
         // إقفال بـ ESC
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && document.getElementById('navDrawer').classList.contains('active')) {
-                toggleMenu();
+            if (e.key === 'Escape') {
+                // إقفال Products Dropdown
+                const productsDropdown = document.querySelector('.nav-item-dropdown');
+                if (productsDropdown && productsDropdown.classList.contains('active')) {
+                    productsDropdown.classList.remove('active');
+                }
+                
+                // إقفال Mobile Menu
+                if (document.getElementById('navDrawer').classList.contains('active')) {
+                    toggleMenu();
+                }
             }
         });
 
