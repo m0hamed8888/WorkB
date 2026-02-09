@@ -1141,7 +1141,7 @@ button:focus-visible {
 }
 
 .footer-logo-box {
-    padding: 10px 15px;
+    padding: 10px 0;
     border-radius: 8px;
     display: inline-block;
     margin-bottom: 15px;
@@ -1363,6 +1363,17 @@ button:focus-visible {
         top: -45px;
     }
 
+}
+@media (min-width: 992px) {
+    .nav-container {
+        justify-content: flex-start; /* ← الحل الأساسي */
+        gap: 60px; /* المسافة الثابتة بين كل العناصر */
+    }
+    
+    .nav-drawer {
+        margin-left: auto; /* عشان قائمة اللغة تروح لليمين */
+        gap: 60px; /* نفس المسافة */
+    }
 }
 
 @media (max-width: 768px) {
