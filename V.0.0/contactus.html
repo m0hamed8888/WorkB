@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Saporina | Industrial Food Manufacturing & Export</title>
+    <meta name="description" content="Start a conversation with Saporina. Contact our sales, supply chain, or careers teams. Manufacturing high-quality Egyptian food products for the world.">
+    
+    <!-- Brand Font: IBM Plex Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons (Script only, no heavy CSS framework) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- 1. CSS VARIABLES & RESET --- */
+        :root {
+            --brand-blue: #211d52;
+            --brand-blue-light: #3f53a1;
+            --brand-green: #5f8748;
+            --brand-red: #d00001;
+            --brand-orange: #eb5d00;
+            --off-white: #FAFAF9;
+            --text-dark: #1F2937;
+            --text-gray: #6B7280;
+            --border-color: #E5E7EB;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--off-white);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- 2. LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section { padding: 4rem 0; }
+        
+        .grid-2-split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 992px) {
+            .grid-2-split {
+                grid-template-columns: 3fr 2fr; /* 60% - 40% Split */
+            }
+        }
+
+        /* --- 3. NAVIGATION (Recreated without Tailwind) --- */
+        .navbar {
+            background: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-shape {
+            background-color: var(--brand-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 12px 0 12px 0;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            font-style: italic;
+        }
+
+        .desktop-menu { display: none; gap: 2rem; align-items: center; }
+        .desktop-menu a { font-size: 0.9rem; font-weight: 500; color: #4B5563; }
+        .desktop-menu a:hover, .desktop-menu a.active { color: var(--brand-green); }
+        .desktop-menu a.active { border-bottom: 2px solid var(--brand-green); }
+        
+        .btn-nav {
+            background-color: var(--brand-green);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+        }
+        .btn-nav:hover { background-color: #4a6b38; }
+
+        @media (min-width: 768px) { .desktop-menu { display: flex; } .mobile-toggle { display: none; } }
+
+        /* --- 4. HERO SECTION --- */
+        .hero {
+            background-color: var(--brand-blue);
+            color: white;
+            position: relative;
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            /* Updated Image Strategy:
+               1. Linear Gradient: Adds a dark blue tint for text readability without hiding the image.
+               2. URL: High-quality canning line image.
+            */
+            background-image: 
+                linear-gradient(to right, rgba(33, 29, 82, 0.85), rgba(33, 29, 82, 0.65)),
+                url('https://images.unsplash.com/photo-1564673646849-d779aa286b25?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            
+            background-size: cover;
+            background-position: center;
+            opacity: 1; /* Full opacity so the image is crisp */
+            mix-blend-mode: normal; /* Removes the "faded/dyed" effect */
+        }
+
+        .hero-content { position: relative; z-index: 10; }
+        .hero-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-sub { font-size: 1.125rem; font-weight: 300; opacity: 0.9; max-width: 700px; }
+
+        /* --- 5. CONTACT FORM (LEFT COLUMN) --- */
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-header { margin-bottom: 2rem; }
+        .form-header h2 { font-size: 1.8rem; color: var(--brand-blue); margin-bottom: 0.5rem; }
+        .form-header p { color: var(--text-gray); font-size: 0.9rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--brand-blue); margin-bottom: 0.5rem; }
+        
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--brand-blue);
+            box-shadow: 0 0 0 3px rgba(33, 29, 82, 0.1);
+        }
+
+        .form-row { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        @media (min-width: 640px) { .form-row { grid-template-columns: 1fr 1fr; } }
+
+        .btn-submit {
+            background-color: var(--brand-green);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        .btn-submit:hover { background-color: #4a6b38; }
+
+        .hidden { display: none !important; }
+
+        /* --- 6. INFO COLUMN (RIGHT COLUMN) --- */
+        .info-card {
+            background: var(--brand-blue);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .info-title { font-size: 1.5rem; margin-bottom: 2rem; font-weight: 700; }
+        
+        .info-item { display: flex; margin-bottom: 1.5rem; }
+        .info-icon { margin-right: 1rem; color: var(--brand-orange); }
+        .info-text h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brand-green); margin-bottom: 0.25rem; }
+        .info-text p { font-size: 0.95rem; opacity: 0.9; }
+
+        .social-links { display: flex; gap: 1rem; margin-top: 2rem; }
+        .social-icon { 
+            background: rgba(255,255,255,0.1); 
+            padding: 0.75rem; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .social-icon:hover { background: var(--brand-green); }
+
+        /* --- 7. PRE-FOOTER STRIP --- */
+        .cta-strip {
+            background-color: white;
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+        }
+        .cta-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: space-between;
+        }
+        @media(min-width: 768px) {
+            .cta-content { flex-direction: row; text-align: left; }
+        }
+        .cta-btn {
+            background-color: var(--brand-red);
+            color: white;
+            padding: 0.8rem 2rem;
+            font-weight: 700;
+            border-radius: 12px 0 12px 0; /* Leaf Shape */
+            transition: transform 0.2s, background-color 0.2s;
+            margin-top: 1rem;
+        }
+        @media(min-width: 768px) { .cta-btn { margin-top: 0; } }
+        .cta-btn:hover { background-color: #b91c1c; transform: translateY(-2px); }
+
+        /* --- 8. FOOTER --- */
+        .footer { background-color: var(--brand-blue); color: white; padding: 4rem 0 2rem; border-top: 1px solid var(--brand-blue-light); }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media(min-width: 768px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(min-width: 1024px) { .footer-grid { grid-template-columns: repeat(5, 1fr); } }
+
+        .footer-col h4 { color: var(--brand-green); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.5rem; font-weight: 700; }
+        .footer-col ul li { margin-bottom: 0.75rem; }
+        .footer-col ul li a { font-size: 0.85rem; color: #D1D5DB; }
+        .footer-col ul li a:hover { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(63, 83, 161, 0.3);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #9CA3AF;
+        }
+        @media(min-width: 768px) {
+            .footer-bottom { flex-direction: row; justify-content: space-between; }
+        }
+
+        /* Success Message Animation */
+        .success-box {
+            background-color: #ECFDF5;
+            border: 1px solid #10B981;
+            color: #065F46;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @media(max-width: 768px) { .mobile-toggle {display: block;}}
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVIGATION -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo-shape">SAPORINA<sup style="font-size: 0.6em; font-style: normal;">®</sup></div>
+            <div class="desktop-menu">
+                <a href="#">Home</a>
+                <a href="#">About Us / Company</a>
+                <a href="#">Products</a>
+                <a href="#">Private Labelling</a>
+                <a href="#">News & Insights</a>
+                <a href="#" class="btn-nav">Contact Us</a>
+            </div>
+            <!-- Mobile Toggle (Icon Only) -->
+            <div class="mobile-toggle" style="display: none; ">
+                <i data-lucide="menu" style="color: var(--brand-blue);"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Start a Conversation with Saporina</h1>
+            <p class="hero-sub">Whether you are looking for premium Egyptian produce, private label manufacturing, or a long-term export partner, we are ready to assist.</p>
+        </div>
+    </header>
+
+    <!-- 3. MAIN SPLIT LAYOUT -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2-split">
+                
+                <!-- Left Column: Smart Form -->
+                <div class="contact-card">
+                    <div class="form-header">
+                        <h2>Send us a Message</h2>
+                        <p>Please select the topic below so we can route your inquiry to the correct department immediately.</p>
+                    </div>
+
+                    <form id="smartContactForm">
+                        <!-- Logic Switcher -->
+                        <div class="form-group">
+                            <label class="form-label" for="inquiryType">I am contacting you to...</label>
+                            <select id="inquiryType" class="form-select" style="border-color: var(--brand-blue); font-weight: 500;">
+                                <option value="sales">Buy Saporina Products</option>
+                                <option value="supply">Supply Products (Sell to Saporina)</option>
+                                <option value="careers">Job Application / Careers</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+
+                        <!-- Common Fields (Name, Email, Phone) -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="fullName">Full Name</label>
+                                <input type="text" id="fullName" class="form-input" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Business Email</label>
+                                <input type="email" id="email" class="form-input" placeholder="john@company.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="+1 (555) 000-0000">
+                            </div>
+                            <!-- Conditional: Company Name (Sales/Supply Only) -->
+                            <div class="form-group field-company">
+                                <label class="form-label" for="companyName">Company Name</label>
+                                <input type="text" id="companyName" class="form-input" placeholder="Acme Corp">
+                            </div>
+                        </div>
+
+                        <!-- LOGIC A: Sales Specifics (Default) -->
+                        <div id="logic-sales" class="logic-group">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Country</label>
+                                    <select class="form-select">
+                                        <option>Select Country</option>
+                                        <option>United States</option>
+                                        <option>United Kingdom</option>
+                                        <option>Saudi Arabia</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Product Interest</label>
+                                    <select class="form-select" id="productInterest">
+                                        <option>Tomato Paste</option>
+                                        <option>Canned Fruit</option>
+                                        <option>Fresh Produce</option>
+                                        <option>Private Label Services</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Estimated Volume</label>
+                                <input type="text" class="form-input" placeholder="e.g. 1 FCL per month">
+                            </div>
+                        </div>
+
+                        <!-- LOGIC B: Supply Specifics -->
+                        <div id="logic-supply" class="logic-group hidden">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Supply Category</label>
+                                    <select class="form-select">
+                                        <option>Raw Agricultural Commodities</option>
+                                        <option>Packaging Materials</option>
+                                        <option>Machinery & Equipment</option>
+                                        <option>Logistics Services</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Tax ID / VAT Number</label>
+                                    <input type="text" class="form-input" placeholder="Tax Registration Number">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Company Website</label>
+                                <input type="url" class="form-input" placeholder="https://">
+                            </div>
+                        </div>
+
+                        <!-- LOGIC C: Careers Specifics -->
+                        <div id="logic-careers" class="logic-group hidden">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Position Applied For</label>
+                                    <input type="text" class="form-input" placeholder="e.g. Quality Control Manager">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">LinkedIn Profile</label>
+                                    <input type="url" class="form-input" placeholder="https://linkedin.com/in/...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Upload CV (PDF/Word)</label>
+                                <input type="file" class="form-input" style="padding: 0.5rem;">
+                            </div>
+                        </div>
+
+                        <!-- Message Field (Always Visible) -->
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message</label>
+                            <textarea id="message" class="form-textarea" rows="4" placeholder="How can we help you?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Send Message</button>
+                        
+                        <div id="successMessage" class="success-box">
+                            <strong>Success!</strong> <span id="successText">We have routed your request.</span>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Column: Operations Info -->
+                <div class="info-card">
+                    <h3 class="info-title">Global Sales Office</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i data-lucide="map-pin"></i></div>
+                        <div class="info-text">
+                            <h4>Office Location</h4>
+                            <p>10th of Ramadan City,<br>Al-Sharqia Governorate, Egypt.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i data-lucide="clock"></i></div>
+                        <div class="info-text">
+                            <h4>Working Hours</h4>
+                            <p>Sun - Thu: 8:00 AM – 5:00 PM (GMT+2)</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i data-lucide="globe"></i></div>
+                        <div class="info-text">
+                            <h4>Export Expertise</h4>
+                            <p>Management expertise across 20+ global markets.</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i data-lucide="linkedin" stroke="white"></i></a>
+                        <a href="#" class="social-icon"><i data-lucide="facebook" stroke="white"></i></a>
+                        <a href="#" class="social-icon"><i data-lucide="instagram" stroke="white"></i></a>
+                        <a href="#" class="social-icon"><i data-lucide="twitter" stroke="white"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PRE-FOOTER CTA STRIP -->
+    <section class="cta-strip">
+        <div class="container">
+            <div class="cta-content">
+                <div style="text-align: inherit;">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--brand-blue);">Ready to experience the Saporina Standard?</h3>
+                    <p style="color: var(--text-gray); margin-top: 0.5rem;">Partner with us for consistent quality and reliable supply chains.</p>
+                </div>
+                <!-- Leaf shape button reusing CSS class -->
+                <a href="#" class="cta-btn">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER (5-Column) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand -->
+                <div class="footer-col">
+                    <div style="background: white; display: inline-block; padding: 0.5rem 1rem; border-radius: 12px 0 12px 0; margin-bottom: 1rem;">
+                        <span style="color: var(--brand-blue); font-weight: 700; font-style: italic; font-size: 1.25rem;">SAPORINA<sup>®</sup></span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #D1D5DB; line-height: 1.5;">Premium Egyptian Food Manufacturing & Export.</p>
+                </div>
+
+                <!-- Col 2: Company & Governance -->
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                    <h4 style="margin-top: 1.5rem;">Corporate Policies</h4>
+                    <ul>
+                        <li><a href="#">Code of Conduct</a></li>
+                        <li><a href="#">Anti-bribery Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Compliance -->
+                <div class="footer-col">
+                    <h4>Our Commitments</h4>
+                    <ul>
+                        <li><a href="#">Environmental Performance</a></li>
+                        <li><a href="#">Equality Plan</a></li>
+                        <li><a href="#">Responsible Channel</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Products -->
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#">Tomato Products</a></li>
+                        <li><a href="#">Olives & Pickles</a></li>
+                        <li><a href="#">Canned Vegetables</a></li>
+                        <li><a href="#">Fruit Purees</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 5: Sales Office -->
+                <div class="footer-col">
+                    <h4>Sales Office</h4>
+                    <ul>
+                        <li style="display: flex; gap: 0.5rem; color: #D1D5DB; font-size: 0.85rem;">
+                            <i data-lucide="map-pin" style="width: 16px; color: var(--brand-orange);"></i>
+                            10th of Ramadan City,<br>Egypt.
+                        </li>
+                        <li style="display: flex; gap: 0.5rem; color: #D1D5DB; font-size: 0.85rem; margin-top: 1rem;">
+                            <i data-lucide="clock" style="width: 16px; color: var(--brand-orange);"></i>
+                            Sun - Thu: 8:00 AM - 5:00 PM<br>(GMT+2)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Saporina. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem; margin-top: 1rem;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Initialize Icons
+        lucide.createIcons();
+
+        // 2. Smart Form Logic
+        const inquiryTypeSelect = document.getElementById('inquiryType');
+        const companyField = document.querySelector('.field-company');
+        
+        // Sections
+        const logicSales = document.getElementById('logic-sales');
+        const logicSupply = document.getElementById('logic-supply');
+        const logicCareers = document.getElementById('logic-careers');
+        
+        const allLogics = [logicSales, logicSupply, logicCareers];
+
+        inquiryTypeSelect.addEventListener('change', function() {
+            const selected = this.value;
+
+            // Hide all specialized sections first
+            allLogics.forEach(el => el.classList.add('hidden'));
+            
+            // Manage Company Field Visibility (Hidden for Careers/General)
+            if (selected === 'careers' || selected === 'general') {
+                companyField.classList.add('hidden');
+            } else {
+                companyField.classList.remove('hidden');
+            }
+
+            // Show relevant section
+            if (selected === 'sales') logicSales.classList.remove('hidden');
+            if (selected === 'supply') logicSupply.classList.remove('hidden');
+            if (selected === 'careers') logicCareers.classList.remove('hidden');
+            // 'general' has no special section, just hides others
+        });
+
+        // 3. Form Submission Simulation
+        document.getElementById('smartContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Gather Data
+            const formData = {
+                type: inquiryTypeSelect.value,
+                name: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Log payload to console (Simulating API)
+            console.log("Form Submitted:", JSON.stringify(formData, null, 2));
+
+            // Show Success Message
+            const successBox = document.getElementById('successMessage');
+            const successText = document.getElementById('successText');
+            
+            // Dynamic text based on selection
+            let department = "General Inquiry";
+            if (formData.type === 'sales') department = "Sales";
+            if (formData.type === 'supply') department = "Procurement";
+            if (formData.type === 'careers') department = "HR";
+
+            successText.textContent = `Thanks! We have routed your request to the ${department} team.`;
+            successBox.style.display = 'block';
+            
+            // Reset form (optional)
+            // this.reset();
+        });
+    </script>
+</body>
+</html>

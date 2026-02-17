@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Saporina Private Label - Turnkey OEM solutions for premium food products. We develop, manufacture, and package tailored to your brand specifications.">
+    <title>Private Labelling - Your Strategic Industrial Partner</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. GLOBAL VARIABLES & RESET --- */
+        :root {
+            /* Main Colors */
+            --primary-blue: #211d52;
+            --secondary-blue: #3f53a1;
+            --white: #ffffff;
+            
+            /* Secondary Colors */
+            --action-red: #d00001;
+            --brand-orange: #eb5d00;
+            --nature-green: #5f8748;
+            --accent-yellow: #f2b800;
+            
+            /* UI Colors */
+            --text-dark: #333333;
+            --text-light: #555555;
+            --bg-grey: #F4F6F8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- UTILITY CLASSES --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center { text-align: center; }
+        .text-white { color: var(--white); }
+        .bg-grey { background-color: var(--bg-grey); }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--action-red);
+            color: var(--white);
+            padding: 12px 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 4px;
+            border: 2px solid var(--action-red);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #a00001;
+            border-color: #a00001;
+        }
+
+        /* Section Title Style */
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 4px;
+            background-color: var(--accent-yellow);
+            margin-top: 5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--text-light);
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+        }
+
+        /* --- 2. NAVBAR --- */
+        .navbar {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo svg {
+            height: 65px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-logo:hover svg { transform: scale(1.02); }
+
+        .nav-menu { display: none; }
+
+        @media (min-width: 900px) {
+            .nav-menu {
+                display: flex;
+                gap: 30px;
+                align-items: center;
+            }
+        }
+
+        .nav-link {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-link:hover { color: var(--secondary-blue); }
+
+        .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 3px;
+            background-color: var(--accent-yellow);
+        }
+
+        .lang-selector {
+            display: flex; align-items: center; gap: 5px;
+            color: var(--primary-blue); cursor: pointer;
+        }
+
+        /* --- 3. HERO SECTION --- */
+        .pl-hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            background-image: linear-gradient(rgba(33, 29, 82, 0.85), rgba(33, 29, 82, 0.7)), 
+                              url('https://images.unsplash.com/photo-1606756627883-9b2447990796?q=80&w=1920&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        .pl-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pl-hero-sub {
+            font-size: 1.5rem;
+            color: var(--accent-yellow);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pl-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .btn-green {
+            background-color: var(--nature-green);
+            border: 2px solid var(--nature-green);
+            color: var(--white);
+            padding: 12px 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-green:hover {
+            background-color: #4a6b38;
+            border-color: #4a6b38;
+        }
+
+        /* --- 4. BUSINESS MODELS --- */
+        .models-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 900px) {
+            .models-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .model-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-top: 5px solid transparent;
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .model-pl { border-top-color: var(--secondary-blue); }
+        .model-pl .model-icon { background-color: var(--secondary-blue); }
+        
+        .model-custom { border-top-color: var(--brand-orange); }
+        .model-custom .model-icon { background-color: var(--brand-orange); }
+
+        .model-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .model-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        .model-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .model-desc {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+            flex-grow: 1;
+        }
+
+        .check-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--nature-green);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        /* --- 5. PACKAGING LIBRARY (FLEX LAYOUT UPDATE) --- */
+        .pack-category {
+            margin-bottom: 50px;
+        }
+
+        .pack-cat-title {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* UPDATED: Flexbox for perfect centering of uneven items */
+        .pack-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centers items in the row */
+            gap: 20px;
+        }
+
+        .pack-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-bottom: 4px solid transparent;
+            transition: 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            /* Mobile: 2 items per row */
+            flex: 0 1 calc(50% - 20px); 
+            max-width: 280px; /* Prevent too wide items */
+        }
+
+        @media (min-width: 900px) {
+            .pack-item {
+                /* Desktop: 4 items per row */
+                flex: 0 1 calc(25% - 20px);
+            }
+        }
+
+        .pack-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        /* COLOR LOGIC: BORDER ONLY */
+        .cat-retail .pack-item { border-bottom-color: var(--brand-orange); }
+        .cat-horeca .pack-item { border-bottom-color: var(--nature-green); } 
+
+        .pack-icon {
+            margin-bottom: 15px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* UPDATED: Uniform Navy Icons by default */
+        .pack-icon svg {
+            height: 50px;
+            width: auto;
+            fill: var(--primary-blue);
+            transition: transform 0.3s, fill 0.3s;
+        }
+        
+        /* UPDATED: Icons gain color ONLY on hover */
+        .cat-retail .pack-item:hover .pack-icon svg { fill: var(--brand-orange); }
+        .cat-horeca .pack-item:hover .pack-icon svg { fill: var(--nature-green); }
+        
+        .pack-item:hover .pack-icon svg {
+            transform: scale(1.1);
+        }
+
+        .pack-name {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .pack-size {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        /* --- 6. DEVELOPMENT PROCESS --- */
+        .process-container {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .process-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        @media (min-width: 900px) {
+            .process-timeline {
+                flex-direction: row;
+                justify-content: space-between;
+                position: relative;
+            }
+            /* Horizontal Line */
+            .process-timeline::before {
+                content: '';
+                position: absolute;
+                top: 30px;
+                left: 50px;
+                right: 50px;
+                height: 4px;
+                background: linear-gradient(to right, var(--secondary-blue), var(--brand-orange), var(--action-red), var(--nature-green), var(--primary-blue));
+                z-index: 0;
+            }
+        }
+
+        .proc-step {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            text-align: center;
+            background: #fff; /* Ensure bg covers line */
+        }
+
+        @media (max-width: 899px) {
+            .proc-step {
+                display: flex;
+                text-align: left;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+
+        .proc-icon-circle {
+            width: 65px;
+            height: 65px;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            border: 5px solid var(--white); /* White border to clear line */
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 899px) {
+            .proc-icon-circle { margin: 0; }
+        }
+
+        /* Step Colors */
+        .step-1 .proc-icon-circle { background-color: var(--secondary-blue); }
+        .step-2 .proc-icon-circle { background-color: var(--brand-orange); }
+        .step-3 .proc-icon-circle { background-color: var(--action-red); }
+        .step-4 .proc-icon-circle { background-color: var(--nature-green); }
+        .step-5 .proc-icon-circle { background-color: var(--primary-blue); }
+
+        .proc-icon-circle svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--white);
+        }
+
+        .proc-content h4 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .proc-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* --- PRODUCT RANGE --- */
+        .range-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        @media (min-width: 768px) { .range-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .range-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            display: flex; flex-direction: column; text-align: left; height: 100%;
+        }
+        .category-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .cat-img-wrap { height: 200px; overflow: hidden; }
+        .cat-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .category-card:hover .cat-img-wrap img { transform: scale(1.1); }
+        .cat-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .cat-title { font-size: 1.25rem; color: var(--primary-blue); font-weight: 700; margin-bottom: 10px; }
+        .cat-desc { font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; flex-grow: 1; }
+        .cat-link { color: var(--action-red); font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; }
+        .cat-link:hover { gap: 10px; }
+
+        /* --- FOOTER & PRE-FOOTER --- */
+        .pre-footer { background-color: #f9f9f9; text-align: center; border-top: 5px solid var(--accent-yellow); }
+        .footer { background-color: var(--primary-blue); color: var(--white); padding-top: 60px; padding-bottom: 20px; }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 40px; align-items: start; }
+        @media (min-width: 600px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
+        .footer h4 { color: var(--accent-yellow); margin-bottom: 20px; font-size: 0.95rem; text-transform: uppercase; font-weight: 700; }
+        .footer ul li { margin-bottom: 8px; font-size: 0.9rem; opacity: 0.9; }
+        .footer ul li a:hover { color: var(--accent-yellow); opacity: 1; }
+        .footer-logo-box { background-color: white; padding: 10px 15px; border-radius: 8px; display: inline-block; margin-bottom: 15px; }
+        .footer-tagline { font-size: 0.9rem; line-height: 1.4; margin-bottom: 20px; opacity: 0.8; max-width: 250px; }
+        .social-row { display: flex; gap: 10px; }
+        .social-btn { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .social-btn:hover { background: var(--accent-yellow); }
+        .social-btn:hover svg { fill: var(--primary-blue); }
+        .social-btn svg { width: 18px; height: 18px; fill: white; }
+        .footer-contact-item { display: flex; gap: 10px; margin-bottom: 15px; font-size: 0.9rem; opacity: 0.9; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 0.8rem; opacity: 0.6; }
+        @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
+        .footer-links a { margin-left: 20px; }
+        .footer-links a:hover { color: var(--white); text-decoration: underline; }
+        .icon { width: 24px; height: 24px; display: inline-block; vertical-align: middle; }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+            background-color: var(--action-red); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 2000;
+            cursor: pointer; transition: transform 0.2s, opacity 0.3s, visibility 0.3s;
+            opacity: 0; visibility: hidden; pointer-events: none;
+        }
+        .fab.visible { opacity: 1; visibility: visible; pointer-events: auto; }
+        .fab:hover { transform: scale(1.1); }
+        .fab svg { width: 24px; height: 24px; fill: white; }
+
+    </style>
+</head>
+<body>
+
+    <!-- A. NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <svg width="220" height="70" viewBox="0 0 320 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 45C0 15 20 0 60 0H310C315.5 0 320 4.5 320 10V45C320 75 300 90 260 90H10C4.5 90 0 85.5 0 80V45Z" fill="#211d52"/>
+                    <path d="M5 45C5 18 22 5 60 5H305C310.5 5 315 9.5 315 15V45C315 72 298 85 260 85H15C9.5 85 5 80.5 5 75V45Z" stroke="#3f53a1" stroke-width="2" stroke-opacity="0.3"/>
+                    <text x="160" y="58" font-family="'IBM Plex Sans', sans-serif" font-weight="800" font-style="italic" font-size="54" fill="white" text-anchor="middle" letter-spacing="1">SAPORINA</text>
+                    <text x="160" y="78" font-family="'IBM Plex Sans', sans-serif" font-weight="400" font-size="13" fill="white" text-anchor="middle" letter-spacing="5" style="text-transform: uppercase; opacity: 0.9;">Freshness & Quality</text>
+                    <text x="305" y="30" font-family="Arial" font-size="14" fill="white" opacity="0.8">®</text>
+                </svg>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="about.html" class="nav-link">ABOUT US</a></li>
+                <li><a href="#" class="nav-link">PRODUCTS</a></li>
+                <li><a href="private-label.html" class="nav-link" style="color: var(--secondary-blue);">PRIVATE LABELLING</a></li>
+                <li><a href="#" class="nav-link">NEWS & MARKET INSIGHTS</a></li>
+                <li><a href="#" class="nav-link">CONTACT US</a></li>
+            </ul>
+
+            <div class="lang-selector">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span>EN</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- B. HERO SECTION (THE PROMISE) -->
+    <header class="pl-hero">
+        <div class="container">
+            <h1>Your Strategic<br>Industrial Partner.</h1>
+            <div class="pl-hero-sub">Your Brand. Our Standard.</div>
+            <p>Turnkey Private Label (OEM) solutions. We develop, manufacture, and package premium food products tailored to your brand's specifications.</p>
+            <a href="#models" class="btn-green">Start Your Project</a>
+        </div>
+    </header>
+
+    <!-- C. BUSINESS MODELS -->
+    <section id="models" class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Flexibility to Match Your Needs</h2>
+                <p class="section-subtitle">Whether you choose our proven recipes or bring your own exclusive formulation, we deliver.</p>
+            </div>
+
+            <div class="models-grid">
+                <!-- Card 1: Private Label (Blue Theme) -->
+                <div class="model-card model-pl">
+                    <div class="model-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16zM16 17H5V7h11l3.55 5L16 17z"/></svg>
+                    </div>
+                    <h3>Private Label (Speed)</h3>
+                    <p class="model-desc">We manufacture our proven, high-quality formulations under your brand name. Ideal for retailers and distributors looking for a quick-to-market solution.</p>
+                    <ul class="check-list">
+                        <li>Use Saporina's premium recipes</li>
+                        <li>Wide range of existing packaging</li>
+                        <li>Fast launch time</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Custom Formulation (Orange Theme) -->
+                <div class="model-card model-custom">
+                    <div class="model-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6 22l6-8h-2.1l-1.3-4.4 2.4-6.6h2l2.4 6.6-1.3 4.4H12l6 8h-2l-2-4-2 4z"/><path d="M12 2C12 2 14 6 14 6H10C10 6 12 2 12 2Z"/></svg>
+                    </div>
+                    <h3>Custom Formulation (R&D)</h3>
+                    <p class="model-desc">Do you have a unique recipe? We manufacture your exclusive formula to your exact specifications. You define the taste and texture; we handle the sourcing and production.</p>
+                    <ul class="check-list">
+                        <li>Scalable reproduction of your recipe</li>
+                        <li>We source all raw materials</li>
+                        <li>Strict confidentiality (NDA)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- D. PACKAGING LIBRARY (FLEX LAYOUT UPDATE) -->
+    <section class="section-padding bg-grey">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Format Flexibility</h2>
+                <p class="section-subtitle">A wide range of packaging to cover Retail and HORECA markets.</p>
+            </div>
+
+            <!-- Cat 1: Retail (Orange Theme) -->
+            <div class="pack-category cat-retail">
+                <div class="pack-cat-title">
+                    <svg class="icon" viewBox="0 0 24 24" style="fill: var(--brand-orange);"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1 1zm-6 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1 1zM4 8h16v11H4V8z"/></svg>
+                    Retail (Consumer Sizes)
+                </div>
+                <div class="pack-grid">
+                    <!-- Row 1 -->
+                    <div class="pack-item">
+                        <div class="pack-icon"><svg viewBox="0 0 24 24"><path d="M4 6v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2zm14 14H6V6h12v14zM6 4h12V2H6v2z"/></svg></div>
+                        <div class="pack-name">Tin Cans</div>
+                        <div class="pack-size">Multiple Sizes Available</div>
+                    </div>
+                    <div class="pack-item">
+                        <div class="pack-icon"><svg viewBox="0 0 24 24"><path d="M10 22h4v-2h-4v2zM6 22h2v-2H6v2zm12-2v2h2v-2h-2zm-5-3h2v-2h-2v2zm-4 0h2v-2H9v2zm8 0h2v-2h-2v2zM6 13h12v-2H6v2zm4-4h4V7h-4v2zm-6 4h2V9H4v4zm16-4v4h2V9h-2zM6 5h12V3H6v2z"/></svg></div>
+                        <div class="pack-name">Glass Jars</div>
+                        <div class="pack-size">Various Shapes & Volumes</div>
+                    </div>
+                    <div class="pack-item">
+                        <div class="pack-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h8v16zM8 6h4v2H8zm0 4h4v2H8zm0 4h4v2H8z"/></svg></div>
+                        <div class="pack-name">Glass Bottles</div>
+                        <div class="pack-size">For Sauces & Juices</div>
+                    </div>
+                    <div class="pack-item">
+                        <div class="pack-icon"><svg viewBox="0 0 24 24"><path d="M10 2c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2h-4zm0 14c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-2c0-1.1-.9-2-2-2h-4z"/></svg></div>
+                        <div class="pack-name">Squeeze Bottles</div>
+                        <div class="pack-size">PET / PP</div>
+                    </div>
+                    
+                    <!-- Row 2 -->
+                    <div class="pack-item">
+                        <div class="pack-icon"><svg viewBox="0 0 24 24"><path d="M17 2H7c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H7V4h10v16z"/></svg></div>
+                        <div class="pack-name">Sachets</div>
+                        <div class="pack-size">Single Serve (5g - 20g)</div>
+                    </div>
+                    <div class="pack-item">
+                        <div class="pack-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4v16h16V4zm-2 14H6V6h12v12zM12 7l-2 3-3 1 3 1 2 3 2-3 3-1-3-1-2-3z"/></svg></div>
+                        <div class="pack-name">Portion Cups</div>
+                        <div class="pack-size">Dip & Spread Sizes</div>
+                    </div>
+                    <div class="pack-item">
+                        <div class="pack-icon"><svg viewBox="0 0 24 24"><path d="M18 4v16H6V4h12m0-2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM8 11h8v2H8v-2zm0 4h8v2H8v-2z"/></svg></div>
+                        <div class="pack-name">Pouches</div>
+                        <div class="pack-size">Stand-up & Spouted</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cat 2: HORECA (Green Theme) -->
+            <div class="pack-category cat-horeca">
+                <div class="pack-cat-title">
+                    <svg class="icon" viewBox="0 0 24 24" style="fill: var(--nature-green);"><path d="M18 4H6v2l1 5v9h10v-9l1-5V4zm-1 7h-1v7h-2v-7H10v7H8v-7H7l-1-5V5h12v1l-1 5zM4 2h16v2H4z"/></svg>
+                    Food Service (HORECA)
+                </div>
+                <div class="pack-grid">
+                    <div class="pack-item">
+                        <div class="pack-icon"><svg viewBox="0 0 24 24"><path d="M4 6v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2zm14 14H6V6h12v14zM6 4h12V2H6v2z"/></svg></div>
+                        <div class="pack-name">Catering Cans</div>
+                        <div class="pack-size">A8 / A10 / A12</div>
+                    </div>
+                    <div class="pack-item">
+                        <div class="pack-icon"><svg viewBox="0 0 24 24"><path d="M18 4H6v2l1 5v9h10v-9l1-5V4zm-1 7h-1v7h-2v-7H10v7H8v-7H7l-1-5V5h12v1l-1 5z"/></svg></div>
+                        <div class="pack-name">Plastic Pails</div>
+                        <div class="pack-size">5kg / 10kg Buckets</div>
+                    </div>
+                    <div class="pack-item">
+                        <div class="pack-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h2v-2h-2v2zm0-4h2V7h-2v6z"/></svg></div>
+                        <div class="pack-name">Bag-in-Box</div>
+                        <div class="pack-size">10kg / 20kg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E. DEVELOPMENT PROCESS -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Development Process</h2>
+                <p class="section-subtitle">From initial concept to final product delivery.</p>
+            </div>
+
+            <div class="process-container">
+                <div class="process-timeline">
+                    <!-- Step 1 (Blue) -->
+                    <div class="proc-step step-1">
+                        <div class="proc-icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        </div>
+                        <div class="proc-content">
+                            <h4>Identification</h4>
+                            <p>We analyze your target market needs, volume requirements, and price points to define the ideal product strategy.</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 (Orange) -->
+                    <div class="proc-step step-2">
+                        <div class="proc-icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                        </div>
+                        <div class="proc-content">
+                            <h4>Specifications</h4>
+                            <p>Detailed definition of recipes, ingredients, packaging materials, and label design to meet your brand standards.</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 (Red) -->
+                    <div class="proc-step step-3">
+                        <div class="proc-icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M18 4v11h2V4c0-1.11-.9-2-2-2H6c-1.11 0-2 .89-2 2v1h14zM4 19c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V7H4v12z"/></svg>
+                        </div>
+                        <div class="proc-content">
+                            <h4>R&D / Matching</h4>
+                            <p>Creation of lab samples for sensory evaluation. We iterate on taste and texture until you sign off on the perfect formula.</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 (Green) -->
+                    <div class="proc-step step-4">
+                        <div class="proc-icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        </div>
+                        <div class="proc-content">
+                            <h4>Production</h4>
+                            <p>Scheduling manufacturing runs under strict ISO quality controls, from raw material processing to final filling.</p>
+                        </div>
+                    </div>
+                    <!-- Step 5 (Navy) -->
+                    <div class="proc-step step-5">
+                        <div class="proc-icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                        </div>
+                        <div class="proc-content">
+                            <h4>Logistics</h4>
+                            <p>Comprehensive handling of export documentation, customs compliance, and efficient shipping to your destination.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- F. PRODUCT RANGE -->
+    <section class="section-padding bg-grey">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Our Product Range</h2>
+                <p class="section-subtitle">Processed ingredients ready for retail, HORECA, or industrial use.</p>
+            </div>
+
+            <div class="range-grid">
+                <!-- 1. Tomato -->
+                <div class="category-card">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=600&auto=format&fit=crop" alt="Tomato Products">
+                    </div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Tomato Products & Sauces</h3>
+                        <p class="cat-desc">Engineered for consistency. From high-brix aseptic paste to ready-to-use pizza sauces and custom ketchups.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- 2. Olives -->
+                <div class="category-card">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1591871903698-095a539b788a?q=80&w=600&auto=format&fit=crop" alt="Olives and Pickles">
+                    </div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Olives, Peppers & Pickles</h3>
+                        <p class="cat-desc">The authentic taste of the Mediterranean. A comprehensive antipasti portfolio of calibrated olives and specialty peppers.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- 3. Veg & Pulses -->
+                <div class="category-card">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1587049359689-12d40a68d223?q=80&w=600&auto=format&fit=crop" alt="Canned Vegetables">
+                    </div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Canned Vegetables & Pulses</h3>
+                        <p class="cat-desc">Nutritious staples, rigorously processed. Sterilized vegetables and pulses offering reliability and safety.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- 4. Purees -->
+                <div class="category-card">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1615485925763-867862780c73?q=80&w=600&auto=format&fit=crop" alt="Fruit Purees">
+                    </div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Purees & Concentrates</h3>
+                        <p class="cat-desc">Authentic fruit profiles for industrial application. Standardized purees delivering stable brix and vibrant color.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- 5. Jams -->
+                <div class="category-card">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1596450522105-6734ff507cb7?q=80&w=600&auto=format&fit=crop" alt="Jams and Spreads">
+                    </div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Jams & Spreads</h3>
+                        <p class="cat-desc">Differentiate with high-fruit content. Premium extra jams ranging from classic Strawberry to exotic Hibiscus.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- 6. Canned Fruits -->
+                <div class="category-card">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1582226296181-e2809d0dae29?q=80&w=600&auto=format&fit=crop" alt="Canned Fruits in Syrup">
+                    </div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Canned Fruits in Syrup</h3>
+                        <p class="cat-desc">Peak-season freshness, preserved. Fruits packed in light or heavy syrup to maintain firm texture.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- G. PRE-FOOTER -->
+    <section class="section-padding pre-footer">
+        <div class="container">
+            <h2 style="color: var(--primary-blue); margin-bottom: 20px;">Ready to experience the Saporina Standard?</h2>
+            <button class="btn">Contact Us</button>
+        </div>
+    </section>
+
+    <!-- H. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo-box">
+                        <svg viewBox="0 0 320 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 45C0 15 20 0 60 0H310C315.5 0 320 4.5 320 10V45C320 75 300 90 260 90H10C4.5 90 0 85.5 0 80V45Z" fill="#211d52"/>
+                            <text x="160" y="58" font-family="'IBM Plex Sans', sans-serif" font-weight="800" font-style="italic" font-size="54" fill="white" text-anchor="middle" letter-spacing="1">SAPORINA</text>
+                            <text x="160" y="78" font-family="'IBM Plex Sans', sans-serif" font-weight="400" font-size="13" fill="white" text-anchor="middle" letter-spacing="5" style="text-transform: uppercase; opacity: 0.9;">Freshness & Quality</text>
+                            <text x="305" y="30" font-family="Arial" font-size="14" fill="white" opacity="0.8">®</text>
+                        </svg>
+                    </div>
+                    <p class="footer-tagline">Premium Egyptian Food Manufacturing & Export.</p>
+                    <div class="social-row">
+                        <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+                        <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9V12.06h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.93h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                        <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/></svg></a>
+                        <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23z"/></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>CORPORATE POLICIES</h4>
+                    <ul>
+                        <li><a href="#">Business Code of Conduct</a></li>
+                        <li><a href="#">Anti-bribery Policy</a></li>
+                        <li><a href="#">Ethical Trading Initiative</a></li>
+                        <li><a href="#">CSR Strategy</a></li>
+                        <li><a href="#">Management Objectives</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>OUR COMMITMENTS</h4>
+                    <ul>
+                        <li><a href="#">Environmental Performance</a></li>
+                        <li><a href="#">Equality Plan</a></li>
+                        <li><a href="#">Commitment Against Harassment</a></li>
+                        <li><a href="#">Responsible Channel</a></li>
+                        <li><a href="#">Corporate Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>SALES OFFICE</h4>
+                    <div class="footer-contact-item">
+                        <svg class="icon" style="flex-shrink:0; fill:var(--accent-yellow);" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <div>10th of Ramadan City,<br>Egypt.</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg class="icon" style="flex-shrink:0; fill:var(--accent-yellow);" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        <div>Sun - Thu: 8:00 AM - 5:00 PM<br>(GMT+2)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Saporina. All rights reserved.</div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <a href="#" class="fab" aria-label="Contact Us">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </a>
+
+    <!-- SCROLL LOGIC: FAB VISIBILITY -->
+    <script>
+        function handleScroll() {
+            const fab = document.querySelector('.fab');
+            const hero = document.querySelector('.pl-hero');
+            const preFooter = document.querySelector('.pre-footer');
+            
+            if (!fab || !hero || !preFooter) return;
+
+            const heroRect = hero.getBoundingClientRect();
+            const preFooterRect = preFooter.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // 1. Show FAB only if the Hero is scrolled out of view
+            const isPastHero = heroRect.bottom < 100;
+
+            // 2. Hide FAB if the top of the Pre-Footer is visible in the viewport
+            const isPreFooterVisible = preFooterRect.top < windowHeight;
+
+            if (isPastHero && !isPreFooterVisible) {
+                fab.classList.add('visible');
+            } else {
+                fab.classList.remove('visible');
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll);
+    </script>
+
+</body>
+</html>
