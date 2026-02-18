@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Saporina - Your industrial partner for processed food ingredients and private label solutions. Bridging Mediterranean agriculture with global demands.">
+    <title>Saporina - Quality, Freshness, Honesty</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           ROOT VARIABLES
+        ============================================ */
+        :root {
+            /* Colors */
+            --primary-blue:   #211d52;
+            --secondary-blue: #3f53a1;
+            --accent-yellow:  #f2b800;
+            --action-red:     #d00001;
+            --brand-orange:   #eb5d00;
+            --nature-green:   #5f8748;
+            --text-dark:      #333333;
+            --text-light:     #555555;
+            --bg-grey:        #F4F6F8;
+            --white:          #ffffff;
+
+            /* Typography */
+            --font-primary: 'IBM Plex Sans', Arial, sans-serif;
+            --fs-xs:   0.75rem;
+            --fs-sm:   0.875rem;
+            --fs-base: 1rem;
+            --fs-lg:   1.125rem;
+            --fs-xl:   1.25rem;
+            --fs-2xl:  1.5rem;
+            --fs-3xl:  1.875rem;
+            --fs-4xl:  2.25rem;
+            --fs-5xl:  3rem;
+        }
+
+        /* ============================================
+           RESET & BASE
+        ============================================ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        img  { max-width: 100%; height: auto; display: block; }
+        a    { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul   { list-style: none; }
+
+        /* ============================================
+           UTILITIES
+        ============================================ */
+        .container       { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .section-padding { padding: 80px 0; }
+        .text-center     { text-align: center; }
+        .text-white      { color: var(--white); }
+        .bg-grey         { background-color: var(--bg-grey); }
+        .icon            { width: 24px; height: 24px; display: inline-block; vertical-align: middle; }
+
+        /* ============================================
+           BUTTONS
+        ============================================ */
+        .btn {
+            display: inline-block;
+            background-color: var(--action-red);
+            color: var(--white);
+            padding: 12px 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 4px;
+            border: 2px solid var(--action-red);
+            cursor: pointer;
+            font-size: var(--fs-sm);
+            transition: all 0.3s;
+        }
+        .btn:hover { background-color: #a00001; border-color: #a00001; }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            margin-left: 10px;
+        }
+        .btn-outline:hover { background-color: var(--white); color: var(--primary-blue); }
+
+        /* Hero button overrides */
+        .home-hero .btn { background-color: var(--nature-green); border-color: var(--nature-green); color: var(--white); }
+        .home-hero .btn:hover { background-color: #4a6b38; border-color: #4a6b38; color: var(--white); }
+
+        /* ============================================
+           SECTION TITLES
+        ============================================ */
+        .section-title {
+            font-size: var(--fs-4xl);
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 4px;
+            background-color: var(--accent-yellow);
+            margin-top: 5px;
+        }
+
+        .section-subtitle {
+            font-size: var(--fs-lg);
+            font-weight: 300;
+            color: var(--text-light);
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+        }
+
+        /* ============================================
+           NAVBAR
+        ============================================ */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            min-height: 80px;
+            display: flex;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo-saporina { width: 220px; height: 65px; }
+
+        .nav-drawer { display: flex; align-items: center; gap: 10px; }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: var(--fs-sm);
+            padding: 10px 0;
+            position: relative;
+            transition: color 0.3s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 3px;
+            background: var(--accent-yellow);
+            transition: width 0.3s;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--primary-blue); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        /* Products dropdown */
+        .nav-item-dropdown { position: relative; }
+        .products-toggle   { display: flex; align-items: center; gap: 5px; }
+        .products-arrow    { width: 14px; height: 14px; transition: transform 0.3s ease; }
+        .nav-item-dropdown.active .products-arrow { transform: rotate(180deg); }
+
+        .products-dropdown {
+            position: absolute;
+            top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            margin-top: 15px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            padding: 20px;
+            min-width: 1000px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease-in-out;
+            z-index: 1001;
+        }
+        .nav-item-dropdown.active .products-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .products-grid-menu {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .product-menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+        }
+        .product-menu-item:hover { background: var(--bg-grey); transform: translateY(-3px); }
+        .product-menu-item img   { width: 150px; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
+        .product-menu-item span  { font-size: var(--fs-xs); font-weight: 600; color: var(--primary-blue); }
+
+        /* Hamburger */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1002;
+        }
+        .hamburger { width: 25px; height: 3px; background: var(--primary-blue); border-radius: 3px; transition: all 0.3s; }
+
+        .nav-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; }
+        .nav-overlay.active { display: block; }
+
+        /* Language dropdown */
+        .lang-dropdown { position: relative; }
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: var(--fs-sm);
+            transition: all 0.3s;
+        }
+        .lang-toggle .icon    { width: 20px; height: 20px; }
+        .lang-toggle:hover    { border-color: var(--primary-blue); color: var(--primary-blue); }
+        .lang-arrow           { width: 16px; height: 16px; transition: transform 0.3s; }
+        .lang-dropdown.active .lang-arrow { transform: rotate(180deg); }
+
+        .lang-menu {
+            position: absolute;
+            top: 100%; right: 0;
+            margin-top: 8px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            list-style: none;
+            padding: 8px;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            z-index: 1001;
+        }
+        .lang-dropdown.active .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        .lang-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            color: var(--text-dark);
+            font-size: var(--fs-sm);
+        }
+        .lang-link:hover  { background: var(--bg-grey); }
+        .lang-link.active { background: var(--primary-blue); color: var(--white); }
+        .lang-flag        { font-size: 20px; }
+
+        /* ============================================
+           HERO
+        ============================================ */
+        .home-hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            background-image: linear-gradient(rgba(33, 29, 82, 0.75), rgba(33, 29, 82, 0.75)),
+                              url('https://images.unsplash.com/photo-1599525492476-880344400c28?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .home-hero h1 { font-size: var(--fs-5xl); font-weight: 700; margin-bottom: 20px; line-height: 1.1; }
+        .home-hero p  { font-size: var(--fs-xl); max-width: 800px; margin: 0 auto 40px auto; opacity: 0.9; font-weight: 300; }
+
+        .hero-cta { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+        /* ============================================
+           EXPERTISE
+        ============================================ */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .expertise-card {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-top: 4px solid transparent;
+        }
+        .expertise-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+        .expertise-icon {
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px auto;
+            transition: 0.3s;
+        }
+        .expertise-icon svg { width: 32px; height: 32px; fill: var(--white); }
+
+        .expertise-card h3 { color: var(--primary-blue); margin-bottom: 10px; font-size: var(--fs-lg); font-weight: 700; }
+        .expertise-card p  { font-size: var(--fs-sm); color: var(--text-light); }
+
+        /* Color variants */
+        .exp-processing { border-top-color: var(--secondary-blue); }
+        .exp-processing .expertise-icon { background-color: var(--secondary-blue); box-shadow: 0 4px 10px rgba(63,83,161,0.3); }
+
+        .exp-rnd { border-top-color: var(--brand-orange); }
+        .exp-rnd .expertise-icon { background-color: var(--brand-orange); box-shadow: 0 4px 10px rgba(235,93,0,0.3); }
+
+        .exp-quality { border-top-color: var(--action-red); }
+        .exp-quality .expertise-icon { background-color: var(--action-red); box-shadow: 0 4px 10px rgba(208,0,1,0.3); }
+
+        .exp-supply { border-top-color: var(--nature-green); }
+        .exp-supply .expertise-icon { background-color: var(--nature-green); box-shadow: 0 4px 10px rgba(95,135,72,0.3); }
+
+        /* ============================================
+           PROCESS
+        ============================================ */
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .step-item { position: relative; z-index: 1; text-align: left; background: var(--white); }
+
+        .step-img-box {
+            width: 100%; height: 200px;
+            border-radius: 8px; overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .step-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .step-item:hover .step-img-box img { transform: scale(1.1); }
+
+        .step-badge {
+            position: absolute;
+            top: 10px; left: 10px;
+            width: 35px; height: 35px;
+            background-color: var(--accent-yellow);
+            color: var(--primary-blue);
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: var(--fs-base);
+            z-index: 2;
+        }
+
+        .step-item h3 { font-size: var(--fs-xl); color: var(--primary-blue); margin-bottom: 10px; font-weight: 700; }
+        .step-item p  { font-size: var(--fs-sm); color: var(--text-light); line-height: 1.5; }
+
+        /* ============================================
+           PRODUCT RANGE
+        ============================================ */
+        .range-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            height: 100%;
+        }
+        .category-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+
+        .cat-img-wrap { height: 200px; overflow: hidden; }
+        .cat-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .category-card:hover .cat-img-wrap img { transform: scale(1.1); }
+
+        .cat-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .cat-title   { font-size: var(--fs-xl); color: var(--primary-blue); font-weight: 700; margin-bottom: 10px; }
+        .cat-desc    { font-size: var(--fs-sm); color: var(--text-light); margin-bottom: 20px; flex-grow: 1; }
+        .cat-link    { color: var(--action-red); font-weight: 700; font-size: var(--fs-sm); display: flex; align-items: center; gap: 5px; }
+        .cat-link:hover { gap: 10px; }
+
+        /* ============================================
+           SECTORS
+        ============================================ */
+        .sector-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+
+        .sector-card {
+            background: var(--bg-grey);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .sector-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+
+        .sector-img-wrap { height: 220px; overflow: hidden; position: relative; }
+        .sector-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .sector-card:hover .sector-img-wrap img { transform: scale(1.1); }
+
+        .sector-content { padding: 30px; flex-grow: 1; border-bottom: 4px solid var(--accent-yellow); }
+        .sector-card h3 { color: var(--primary-blue); margin-bottom: 15px; font-size: var(--fs-2xl); font-weight: 700; }
+        .sector-card p  { color: var(--text-light); font-size: var(--fs-sm); line-height: 1.6; }
+
+        /* ============================================
+           PRIVATE LABEL (Dark Section)
+        ============================================ */
+        .dark-section { background-color: var(--primary-blue); color: var(--white); position: relative; overflow: hidden; }
+
+        .pl-content-grid { display: grid; grid-template-columns: 1fr; gap: 50px; align-items: center; }
+
+        .pl-title    { color: var(--white); font-size: var(--fs-4xl); margin-bottom: 20px; }
+        .pl-subtitle { color: var(--accent-yellow); margin-bottom: 15px; font-size: var(--fs-3xl); }
+        .pl-intro    { opacity: 0.9; margin-bottom: 30px; }
+
+        .pl-list { margin-top: 20px; }
+        .pl-list li { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; font-size: var(--fs-lg); }
+        .pl-list li svg { fill: var(--accent-yellow); width: 24px; height: 24px; flex-shrink: 0; }
+
+        .pl-visual { display: flex; justify-content: center; opacity: 0.3; }
+        .pl-visual svg { fill: var(--white); }
+
+        /* ============================================
+           LOGISTICS
+        ============================================ */
+        .logistics-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .logistics-intro { color: var(--text-light); margin-bottom: 10px; }
+
+        .logistics-img-box {
+            background: #eef2f5;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logistics-img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        .logistics-features { display: flex; flex-direction: column; gap: 20px; }
+
+        .log-feature { display: flex; gap: 15px; align-items: flex-start; }
+
+        .log-icon {
+            width: 40px; height: 40px;
+            background: var(--bg-grey);
+            border-radius: 4px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .log-icon svg { width: 20px; height: 20px; fill: var(--primary-blue); }
+
+        .log-feature strong { display: block; margin-bottom: 2px; }
+        .log-feature p      { font-size: var(--fs-sm); color: #666; }
+
+        /* ============================================
+           BLOG
+        ============================================ */
+        .blog-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+
+        .blog-img-wrap { height: 200px; overflow: hidden; position: relative; }
+        .blog-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .blog-card:hover .blog-img-wrap img { transform: scale(1.05); }
+
+        .blog-date-badge {
+            position: absolute;
+            top: 15px; left: 15px;
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+            padding: 5px 10px;
+            font-size: var(--fs-xs);
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .blog-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .blog-meta    { font-size: var(--fs-xs); color: var(--text-light); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+        .blog-title   { font-size: var(--fs-lg); color: var(--primary-blue); font-weight: 700; margin-bottom: 15px; line-height: 1.4; }
+        .blog-excerpt { font-size: var(--fs-sm); color: var(--text-light); margin-bottom: 20px; flex-grow: 1; }
+        .blog-link    { color: var(--action-red); font-weight: 700; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; }
+        .blog-link:hover { text-decoration: underline; }
+
+        /* ============================================
+           FLOATING ACTION BUTTON
+        ============================================ */
+        .fab {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            width: 60px; height: 60px;
+            background-color: var(--action-red);
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 2000;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.3s, visibility 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .fab.visible    { opacity: 1; visibility: visible; pointer-events: auto; }
+        .fab:hover      { transform: scale(1.1); }
+        .fab svg        { width: 24px; height: 24px; fill: var(--white); }
+
+        /* ============================================
+           PRE-FOOTER
+        ============================================ */
+        .pre-footer {
+            background-color: #f9f9f9;
+            text-align: center;
+            border-top: 5px solid var(--accent-yellow);
+        }
+        .pre-footer h2 { color: var(--primary-blue); margin-bottom: 20px; }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding-top: 60px;
+            padding-bottom: 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        .footer-title {
+            color: var(--accent-yellow);
+            padding: 1rem 0;
+            font-size: var(--fs-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+
+        .footer ul li         { margin-bottom: 8px; font-size: var(--fs-sm); opacity: 0.9; }
+        .footer ul li a:hover { color: var(--accent-yellow); opacity: 1; }
+
+        .footer-logo-box     { padding: 10px 0; border-radius: 8px; display: inline-block; margin-bottom: 15px; min-height: 65px; }
+        .footer-logo-box img { width: 220px; height: 65px; }
+
+        .footer-logo-svg     { width: 220px; height: 65px; }
+
+        .footer-tagline {
+            font-size: var(--fs-sm);
+            line-height: 1.4;
+            margin-bottom: 20px;
+            opacity: 0.8;
+            max-width: 250px;
+        }
+
+        .social-row { display: flex; gap: 10px; }
+
+        .social-btn {
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.3s;
+        }
+        .social-btn:hover     { background: var(--accent-yellow); }
+        .social-btn svg       { width: 18px; height: 18px; fill: var(--white); }
+        .social-btn:hover svg { fill: var(--primary-blue); }
+
+        .footer-contact-item { display: flex; gap: 10px; margin-bottom: 15px; font-size: var(--fs-sm); opacity: 0.9; }
+        .footer-contact-icon { flex-shrink: 0; fill: var(--accent-yellow); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 10px;
+            font-size: var(--fs-sm); opacity: 0.6;
+        }
+
+        .footer-links a           { margin-left: 20px; }
+        .footer-links a:hover     { color: var(--white); text-decoration: underline; }
+
+        /* ============================================
+           FOCUS ACCESSIBILITY
+        ============================================ */
+        a:focus-visible, button:focus-visible {
+            outline: 2px dashed var(--secondary-blue);
+            outline-offset: 4px;
+        }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media (min-width: 600px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-bottom { flex-direction: row; justify-content: space-between; }
+        }
+
+        @media (min-width: 768px) {
+            .expertise-grid  { grid-template-columns: repeat(2, 1fr); }
+            .range-grid      { grid-template-columns: repeat(2, 1fr); }
+            .sector-grid     { grid-template-columns: repeat(3, 1fr); }
+            .blog-grid       { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (min-width: 900px) {
+            .process-steps      { grid-template-columns: repeat(4, 1fr); }
+            .pl-content-grid    { grid-template-columns: 1fr 1fr; }
+            .logistics-wrapper  { grid-template-columns: 1fr 1fr; align-items: center; }
+        }
+
+        @media (min-width: 992px) {
+            .nav-container { justify-content: flex-start; gap: 60px; }
+            .nav-drawer    { margin-left: auto; gap: 60px; }
+        }
+
+        @media (min-width: 1024px) {
+            .expertise-grid { grid-template-columns: repeat(4, 1fr); }
+            .range-grid     { grid-template-columns: repeat(3, 1fr); }
+            .footer-grid    { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        @media (max-width: 991px) {
+            .menu-toggle { display: flex; }
+
+            .nav-drawer {
+                position: fixed;
+                top: 0; right: -100%;
+                width: 100%; max-width: 490px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: 80px 25px 25px;
+                gap: 0;
+                transition: right 0.3s ease;
+                z-index: 999;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                overflow-y: auto;
+            }
+            .nav-drawer.active { right: 0; }
+
+            .nav-menu { flex-direction: column; width: 100%; gap: 0; }
+            .nav-menu li { border-bottom: 1px solid #eee; }
+            .nav-link  { display: block; padding: 20px 0; font-size: var(--fs-base); width: 100%; text-align: center; }
+            .nav-link::after { bottom: 10px; height: 2px; }
+
+            .menu-toggle.active .hamburger:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .menu-toggle.active .hamburger:nth-child(2) { opacity: 0; }
+            .menu-toggle.active .hamburger:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+            .products-dropdown {
+                position: relative;
+                top: 0; transform: none;
+                margin-top: 10px;
+                box-shadow: none;
+                border: 1px solid #eee;
+                border-radius: 8px;
+                min-width: auto; width: 100%;
+                max-height: 0; padding: 0;
+                overflow: hidden;
+                opacity: 1; visibility: visible;
+                transition: max-height 0.3s ease, padding 0.3s ease;
+            }
+            .nav-item-dropdown.active .products-dropdown { max-height: 500px; padding: 15px; overflow-y: auto; }
+            .products-grid-menu { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .product-menu-item img { width: 135px; height: 120px; }
+
+            .lang-dropdown  { width: 100%; margin-top: 15px; }
+            .lang-toggle    { width: 100%; justify-content: center; }
+            .lang-menu      { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 1px solid #eee; margin: 10px 0; display: none; }
+            .lang-dropdown.active .lang-menu { display: block; }
+            .lang-arrow     { margin-left: auto; }
+        }
+
+        @media (max-width: 768px) {
+            .home-hero h1 { font-size: var(--fs-4xl); }
+            .hero-cta     { flex-direction: column; align-items: center; }
+            .btn          { width: 100%; text-align: center; }
+            .btn-outline  { margin-left: 0; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-saporina          { width: 140px; height: auto; }
+            .products-grid-menu     { grid-template-columns: 1fr; }
+            .nav-drawer             { max-width: 320px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="navbar">
+        <nav class="container nav-container">
+            <a href="index.html">
+                <svg class="logo-saporina" viewBox="0 0 320 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 45C0 15 20 0 60 0H310C315.5 0 320 4.5 320 10V45C320 75 300 90 260 90H10C4.5 90 0 85.5 0 80V45Z" fill="#211d52"/>
+                    <path d="M5 45C5 18 22 5 60 5H305C310.5 5 315 9.5 315 15V45C315 72 298 85 260 85H15C9.5 85 5 80.5 5 75V45Z" stroke="#3f53a1" stroke-width="2" stroke-opacity="0.3"/>
+                    <text x="160" y="58" font-family="'IBM Plex Sans', sans-serif" font-weight="800" font-style="italic" font-size="54" fill="white" text-anchor="middle" letter-spacing="1">SAPORINA</text>
+                    <text x="160" y="78" font-family="'IBM Plex Sans', sans-serif" font-weight="400" font-size="13" fill="white" text-anchor="middle" letter-spacing="5" style="text-transform:uppercase;opacity:0.9">Freshness &amp; Quality</text>
+                    <text x="305" y="30" font-family="Arial" font-size="14" fill="white" opacity="0.8">®</text>
+                </svg>
+            </a>
+
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+
+            <div class="nav-drawer" id="navDrawer">
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link">ABOUT US</a></li>
+
+                    <li class="nav-item-dropdown">
+                        <button class="nav-link products-toggle" onclick="toggleProducts(event)" aria-label="Products Menu">
+                            PRODUCTS
+                            <svg class="products-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="products-dropdown" id="productsDropdown">
+                            <div class="products-grid-menu">
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=300&auto=format&fit=crop" loading="lazy" alt="Pizza Sauce"><span>Pizza Sauce</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=300&auto=format&fit=crop" loading="lazy" alt="Tomato Paste"><span>Tomato Paste</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=300&auto=format&fit=crop" loading="lazy" alt="Tomato Passata"><span>Tomato Passata</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=300&auto=format&fit=crop" loading="lazy" alt="Peeled Tomato"><span>Peeled Tomato</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=300&auto=format&fit=crop" loading="lazy" alt="Tomato Powder"><span>Tomato Powder</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=300&auto=format&fit=crop" loading="lazy" alt="Diced Tomato"><span>Diced Tomato</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=300&auto=format&fit=crop" loading="lazy" alt="Ketchup"><span>Tomato Ketchup</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=300&auto=format&fit=crop" loading="lazy" alt="Marinara Sauce"><span>Marinara Sauce</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=300&auto=format&fit=crop" loading="lazy" alt="Crushed Tomato"><span>Crushed Tomato</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=300&auto=format&fit=crop" loading="lazy" alt="Concentrate"><span>Tomato Concentrate</span></a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="#" class="nav-link">PRIVATE LABELLING</a></li>
+                    <li><a href="#" class="nav-link">NEWS &amp; MARKET INSIGHTS</a></li>
+                    <li><a href="#" class="nav-link">CONTACT US</a></li>
+                </ul>
+
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-toggle" onclick="toggleLang()" aria-label="Select Language">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span id="currentLang">EN</span>
+                        <svg class="lang-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="lang-menu" id="langMenu">
+                        <li><a href="#" class="lang-link active" data-lang="EN"><span class="lang-flag">🇺🇸</span><span>English</span></a></li>
+                        <li><a href="#" class="lang-link" data-lang="AR"><span class="lang-flag">🇸🇦</span><span>العربية</span></a></li>
+                        <li><a href="#" class="lang-link" data-lang="FR"><span class="lang-flag">🇫🇷</span><span>Français</span></a></li>
+                        <li><a href="#" class="lang-link" data-lang="DE"><span class="lang-flag">🇩🇪</span><span>Deutsch</span></a></li>
+                        <li><a href="#" class="lang-link" data-lang="ES"><span class="lang-flag">🇪🇸</span><span>Español</span></a></li>
+                        <li><a href="#" class="lang-link" data-lang="IT"><span class="lang-flag">🇮🇹</span><span>Italiano</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
+        </nav>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <header class="home-hero">
+        <div class="container">
+            <h1>Quality, Freshness,<br>Honesty.</h1>
+            <p>Your industrial partner for processed food ingredients and private label solutions. We bridge Mediterranean agriculture with global demands, engineering quality and freshness from the source directly to the shelf.</p>
+            <div class="hero-cta">
+                <a href="#products" class="btn">Explore Products</a>
+                <a href="#sectors" class="btn btn-outline">Sectors We Serve</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Action Button -->
+    <a href="#" class="fab" aria-label="Contact Us">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </a>
+
+    <!-- ==================== EXPERTISE ==================== -->
+    <section id="about" class="section-padding bg-grey">
+        <div class="container text-center">
+            <h2 class="section-title">Our Expertise</h2>
+            <p class="section-subtitle">Industrial Manufacturing Excellence. Saporina operates at the intersection of agriculture and advanced food technology.</p>
+            <div class="expertise-grid">
+                <div class="expertise-card exp-processing">
+                    <div class="expertise-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 22H2V20L5 20V16L2 16V14L5 14V11L2 11V9L5 9V6L2 6V4H10V2H22V22ZM12 4V8H20V4H12ZM12 10V14H20V10H12ZM12 16V20H20V16H12Z"/></svg>
+                    </div>
+                    <h3>Advanced Processing</h3>
+                    <p>Access to state-of-the-art Aseptic and thermal processing technologies.</p>
+                </div>
+                <div class="expertise-card exp-rnd">
+                    <div class="expertise-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 21c0 .5.5 1 1 1h4c.5 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.5 1 1 1h6c.5 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/></svg>
+                    </div>
+                    <h3>R&amp;D &amp; Innovation</h3>
+                    <p>Expert recipe formulation and precise product matching capabilities.</p>
+                </div>
+                <div class="expertise-card exp-quality">
+                    <div class="expertise-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>Rigorous microbiological testing and foreign body control.</p>
+                </div>
+                <div class="expertise-card exp-supply">
+                    <div class="expertise-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 10c.1 0 .3 0 .4-.1l2.4 2.8c.4.5.3 1.3-.2 1.8l-3.3 3.3c-.4.4-1 .4-1.4 0l-5.3-5.3c-.2-.2-.3-.5-.3-.8V5c0-.6.4-1 1-1h6.8c.3 0 .6.1.8.3l2.8 2.8c.5.5.5 1.3 0 1.8l-2.4 2.4c-.4-.2-.8-.3-1.3-.3-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3c0-.6-.2-1.1-.6-1.5z"/></svg>
+                    </div>
+                    <h3>Scalable Supply</h3>
+                    <p>Secured raw material contracts ensuring year-round availability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROCESS ==================== -->
+    <section class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">From Farm to Factory</h2>
+            <p class="section-subtitle">The Controlled Process. From sourcing to global export, we supervise every step to guarantee industrial-grade quality.</p>
+            <div class="process-steps">
+                <div class="step-item">
+                    <div class="step-img-box">
+                        <div class="step-badge">1</div>
+                        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=600&auto=format&fit=crop" alt="Strategic Sourcing">
+                    </div>
+                    <h3>Strategic Sourcing</h3>
+                    <p>We plan each season by securing exclusive agreements with trusted farmers and sourcing premium raw materials to ensure consistent supply.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-img-box">
+                        <div class="step-badge">2</div>
+                        <img src="https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?q=80&w=600&auto=format&fit=crop" alt="Agricultural Oversight">
+                    </div>
+                    <h3>Agricultural Oversight</h3>
+                    <p>Our agronomists supervise the plantation and oversee the harvest to ensure raw material integrity and adherence to quality standards.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-img-box">
+                        <div class="step-badge">3</div>
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop" alt="Production">
+                    </div>
+                    <h3>Production</h3>
+                    <p>Fresh produce is cleaned, optically sorted, and processed into high-quality finished products, utilizing advanced thermal preservation techniques.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-img-box">
+                        <div class="step-badge">4</div>
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop" alt="Packaging & Export">
+                    </div>
+                    <h3>Packaging &amp; Export</h3>
+                    <p>Finished products are packed in flexible formats for Industrial, Food Service / HORECA, and Retail customers with complete documentation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRODUCTS ==================== -->
+    <section id="products" class="section-padding bg-grey">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Our Product Range</h2>
+                <p class="section-subtitle">Processed ingredients ready for retail, HORECA, or industrial use.</p>
+            </div>
+            <div class="range-grid">
+                <div class="category-card">
+                    <div class="cat-img-wrap"><img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=600&auto=format&fit=crop" alt="Tomato Products"></div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Tomato Products &amp; Sauces</h3>
+                        <p class="cat-desc">Engineered for consistency. From high-brix aseptic paste to ready-to-use pizza sauces and custom ketchups.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="cat-img-wrap"><img src="https://images.unsplash.com/photo-1591871903698-095a539b788a?q=80&w=600&auto=format&fit=crop" alt="Olives and Pickles"></div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Olives, Peppers &amp; Pickles</h3>
+                        <p class="cat-desc">The authentic taste of the Mediterranean. A comprehensive antipasti portfolio of calibrated olives and specialty peppers.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="cat-img-wrap"><img src="https://images.unsplash.com/photo-1587049359689-12d40a68d223?q=80&w=600&auto=format&fit=crop" alt="Canned Vegetables"></div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Canned Vegetables &amp; Pulses</h3>
+                        <p class="cat-desc">Nutritious staples, rigorously processed. Sterilized vegetables and pulses offering reliability and safety.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="cat-img-wrap"><img src="https://images.unsplash.com/photo-1615485925763-867862780c73?q=80&w=600&auto=format&fit=crop" alt="Fruit Purees"></div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Purees &amp; Concentrates</h3>
+                        <p class="cat-desc">Authentic fruit profiles for industrial application. Standardized purees delivering stable brix and vibrant color.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="cat-img-wrap"><img src="https://images.unsplash.com/photo-1596450522105-6734ff507cb7?q=80&w=600&auto=format&fit=crop" alt="Jams and Spreads"></div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Jams &amp; Spreads</h3>
+                        <p class="cat-desc">Differentiate with high-fruit content. Premium extra jams ranging from classic Strawberry to exotic Hibiscus.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="cat-img-wrap"><img src="https://images.unsplash.com/photo-1582226296181-e2809d0dae29?q=80&w=600&auto=format&fit=crop" alt="Canned Fruits"></div>
+                    <div class="cat-content">
+                        <h3 class="cat-title">Canned Fruits in Syrup</h3>
+                        <p class="cat-desc">Peak-season freshness, preserved. Fruits packed in light or heavy syrup to maintain firm texture.</p>
+                        <a href="#" class="cat-link">VIEW DETAILS <span>&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTORS ==================== -->
+    <section id="sectors" class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">Sectors We Serve</h2>
+            <div class="sector-grid">
+                <div class="sector-card">
+                    <div class="sector-img-wrap"><img src="https://images.unsplash.com/photo-1578916171728-56c7ed08d90c?q=80&w=600&auto=format&fit=crop" alt="Retail Chains"></div>
+                    <div class="sector-content">
+                        <h3>Retail Chains</h3>
+                        <p>Supermarkets and hypermarkets requiring shelf-ready products with high visual appeal and barcode compliance.</p>
+                    </div>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-img-wrap"><img src="https://images.unsplash.com/photo-1577534680875-9c92257d1955?q=80&w=600&auto=format&fit=crop" alt="HORECA"></div>
+                    <div class="sector-content">
+                        <h3>Food Service / HORECA</h3>
+                        <p>Hotels, restaurants, and catering companies needing high-volume formats (A10 cans, Gallons) with consistent taste.</p>
+                    </div>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-img-wrap"><img src="https://images.unsplash.com/photo-1563986768427-1c591322f469?q=80&w=600&auto=format&fit=crop" alt="Industrial"></div>
+                    <div class="sector-content">
+                        <h3>Industrial</h3>
+                        <p>B2B partners requiring semi-processed ingredients (drums, bulk aseptics) for further processing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRIVATE LABEL ==================== -->
+    <section class="section-padding dark-section">
+        <div class="container">
+            <div class="pl-content-grid">
+                <div>
+                    <h2 class="pl-title">Private Label</h2>
+                    <h3 class="pl-subtitle">Your Brand, Our Standards.</h3>
+                    <p class="pl-intro">We act as your dedicated production arm. Saporina handles the complexities of formulation, sourcing, and manufacturing, delivering a finished product ready for your label.</p>
+                    <ul class="pl-list">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            Custom Formulation Development
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            Packaging Sourcing (Glass, Tin, Tetra, Squeeze, Drums)
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            Regulatory Compliance (FDA, EU)
+                        </li>
+                    </ul>
+                </div>
+                <div class="pl-visual">
+                    <svg width="300" height="300" viewBox="0 0 24 24">
+                        <path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zM3 13.5h8v8H3z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LOGISTICS ==================== -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Logistics Without Borders</h2>
+            <div class="logistics-wrapper">
+                <div class="logistics-img-box">
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=600&auto=format&fit=crop" alt="Global Logistics Map">
+                </div>
+                <div class="logistics-features">
+                    <p class="logistics-intro">We navigate international trade complexities so you don't have to. Efficient dry container shipping from strategic export hubs to your warehouse door.</p>
+                    <div class="log-feature">
+                        <div class="log-icon"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+                        <div>
+                            <strong>Sea Freight</strong>
+                            <p>Optimized routes via Mediterranean ports.</p>
+                        </div>
+                    </div>
+                    <div class="log-feature">
+                        <div class="log-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
+                        <div>
+                            <strong>Documentation</strong>
+                            <p>Full export compliance (EUR.1, COMESA, Health Certs).</p>
+                        </div>
+                    </div>
+                    <div class="log-feature">
+                        <div class="log-icon"><svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/></svg></div>
+                        <div>
+                            <strong>Flexible Terms</strong>
+                            <p>Incoterms tailored to your needs (FOB, CIF, DAP).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BLOG ==================== -->
+    <section class="section-padding bg-grey">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">News &amp; Market Insights</h2>
+                <p class="section-subtitle">Stay informed with the latest updates from the harvest, market trends, and Saporina corporate news.</p>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=600&auto=format&fit=crop" alt="Tomato Harvest">
+                        <span class="blog-date-badge">Aug 15, 2025</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">Market Report</div>
+                        <h3 class="blog-title">2025 Summer Harvest Report: Yield &amp; Quality Analysis</h3>
+                        <p class="blog-excerpt">An in-depth look at this season's tomato crop, featuring brix levels analysis and volume projections for the upcoming industrial cycle.</p>
+                        <a href="#" class="blog-link">Read Full Report</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1565514020176-db7926e8282e?q=80&w=600&auto=format&fit=crop" alt="Exhibition">
+                        <span class="blog-date-badge">Oct 02, 2025</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">Corporate News</div>
+                        <h3 class="blog-title">Saporina at Gulfood Manufacturing 2025</h3>
+                        <p class="blog-excerpt">Join us at the Dubai World Trade Centre. We will be showcasing our new aseptic filling lines and expanded private label capabilities.</p>
+                        <a href="#" class="blog-link">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?q=80&w=600&auto=format&fit=crop" alt="Shipping">
+                        <span class="blog-date-badge">Nov 10, 2025</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">Logistics</div>
+                        <h3 class="blog-title">Navigating Global Supply Chains: Q4 Update</h3>
+                        <p class="blog-excerpt">How Saporina is optimizing export routes and securing freight availability to ensure on-time delivery for our European partners.</p>
+                        <a href="#" class="blog-link">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRE-FOOTER ==================== -->
+    <section class="section-padding pre-footer">
+        <div class="container">
+            <h2>Ready to experience the Saporina Standard?</h2>
+            <button class="btn">Contact Us</button>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand -->
+                <div>
+                    <div class="footer-logo-box">
+                        <svg class="footer-logo-svg" viewBox="0 0 320 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 45C0 15 20 0 60 0H310C315.5 0 320 4.5 320 10V45C320 75 300 90 260 90H10C4.5 90 0 85.5 0 80V45Z" fill="#211d52"/>
+                            <text x="160" y="58" font-family="'IBM Plex Sans', sans-serif" font-weight="800" font-style="italic" font-size="54" fill="white" text-anchor="middle" letter-spacing="1">SAPORINA</text>
+                            <text x="160" y="78" font-family="'IBM Plex Sans', sans-serif" font-weight="400" font-size="13" fill="white" text-anchor="middle" letter-spacing="5" style="text-transform:uppercase;opacity:0.9">Freshness &amp; Quality</text>
+                            <text x="305" y="30" font-family="Arial" font-size="14" fill="white" opacity="0.8">®</text>
+                        </svg>
+                    </div>
+                    <p class="footer-tagline">Premium Egyptian Food Manufacturing &amp; Export.</p>
+                    <nav class="social-row" aria-label="Social media links">
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+                        <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9V12.06h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.93h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/></svg></a>
+                        <a href="#" class="social-btn" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23z"/></svg></a>
+                    </nav>
+                </div>
+
+                <!-- Col 2: Corporate Policies -->
+                <nav>
+                    <h4 class="footer-title">CORPORATE POLICIES</h4>
+                    <ul>
+                        <li><a href="#">Business Code of Conduct</a></li>
+                        <li><a href="#">Anti-bribery Policy</a></li>
+                        <li><a href="#">Ethical Trading Initiative</a></li>
+                        <li><a href="#">CSR Strategy</a></li>
+                        <li><a href="#">Management Objectives</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 3: Commitments -->
+                <nav>
+                    <h4 class="footer-title">OUR COMMITMENTS</h4>
+                    <ul>
+                        <li><a href="#">Environmental Performance</a></li>
+                        <li><a href="#">Equality Plan</a></li>
+                        <li><a href="#">Commitment Against Harassment</a></li>
+                        <li><a href="#">Responsible Channel</a></li>
+                        <li><a href="#">Corporate Policy</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 4: Sales Office -->
+                <address>
+                    <h4 class="footer-title">SALES OFFICE</h4>
+                    <div class="footer-contact-item">
+                        <svg class="icon footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <div>10th of Ramadan City,<br>Egypt.</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg class="icon footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        <div>Sun - Thu: 8:00 AM - 5:00 PM<br>(GMT+2)</div>
+                    </div>
+                </address>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Saporina. All rights reserved.</p>
+                <nav class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookies</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        /* ---- Mobile Menu ---- */
+        function toggleMenu() {
+            const drawer  = document.getElementById('navDrawer');
+            const overlay = document.getElementById('navOverlay');
+            const toggle  = document.querySelector('.menu-toggle');
+            drawer.classList.toggle('active');
+            overlay.classList.toggle('active');
+            toggle.classList.toggle('active');
+            document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+        }
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!link.classList.contains('products-toggle')) {
+                    if (document.getElementById('navDrawer').classList.contains('active')) toggleMenu();
+                }
+            });
+        });
+
+        /* ---- Products Dropdown ---- */
+        function toggleProducts(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            document.querySelector('.nav-item-dropdown').classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(e) {
+            const dropdown = document.querySelector('.nav-item-dropdown');
+            if (dropdown && !dropdown.contains(e.target)) dropdown.classList.remove('active');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const pd = document.querySelector('.products-dropdown');
+            if (pd) pd.addEventListener('click', e => e.stopPropagation());
+        });
+
+        /* ---- Language Dropdown ---- */
+        function toggleLang() {
+            document.getElementById('langDropdown').classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(e) {
+            const ld = document.getElementById('langDropdown');
+            if (ld && !ld.contains(e.target)) ld.classList.remove('active');
+        });
+
+        /* ---- ESC key ---- */
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            const pd = document.querySelector('.nav-item-dropdown');
+            if (pd && pd.classList.contains('active')) pd.classList.remove('active');
+            if (document.getElementById('navDrawer').classList.contains('active')) toggleMenu();
+        });
+
+        /* ---- FAB scroll logic ---- */
+        window.addEventListener('scroll', function() {
+            const fab        = document.querySelector('.fab');
+            const hero       = document.querySelector('.home-hero');
+            const preFooter  = document.querySelector('.pre-footer');
+            if (!hero || !preFooter) return;
+            const scrollPos      = window.scrollY;
+            const heroBottom     = hero.offsetTop + hero.offsetHeight;
+            const preFooterTop   = preFooter.offsetTop;
+            const windowHeight   = window.innerHeight;
+            if (scrollPos > (heroBottom - 200) && scrollPos < (preFooterTop - windowHeight + 100)) {
+                fab.classList.add('visible');
+            } else {
+                fab.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>

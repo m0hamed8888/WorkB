@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO: Meta Description & Keywords -->
+    <meta name="description" content="Saporina supplies premium Egyptian tomato paste, pizza sauce, and passata for Retail, Food Service (HORECA), and Industrial sectors worldwide. Request a wholesale quote today.">
+    <meta name="keywords" content="Tomato Paste, Pizza Sauce, Passata, Egyptian Tomatoes, Wholesale Tomato Products, Private Label, HORECA, Industrial Tomato Concentrate">
+    <meta name="author" content="Saporina">
+
+    <!-- Social Media / Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Saporina - Premium Tomato Products & Sauces">
+    <meta property="og:description" content="Discover our range of high-quality tomato derivatives sourced from Egypt's fertile lands. Tailored for Retail, Food Service, and Industrial needs.">
+    <meta property="og:image" content="https://placehold.co/1200x630/211d52/ffffff?text=Saporina+Tomato+Products">
+    <meta property="og:url" content="https://m0hamed8888.github.io/WorkB/V.0.0/">
+
+    <title>Saporina - Tomato Products & Sauces</title>
+    
+    <!-- Favicon Placeholder -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍅</text></svg>">
+
+    <!-- Swapped local font for Google Fonts for immediate preview rendering -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 
+    Original Local Font Imports (Commented out for Preview):
+    <link rel="preload" href="./fonts/IBM-Plex-Sans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="./fonts.css"> 
+    -->
+
+    <style>
+        /* ============================================
+        CSS VARIABLES & RESET
+        ============================================ */
+        :root {
+            /* Colors */
+            --primary-blue: #211d52;
+            --secondary-blue: #3f53a1;
+            --accent-yellow: #f2b800;
+            --action-red: #d00001;
+            --nature-green: #5f8748;
+            --text-dark: #333333;
+            --bg-grey: #F4F6F8;
+            --white: #ffffff;
+
+            /* Typography */
+            --font-primary: 'IBM Plex Sans', Arial, sans-serif;
+            --fs-xs:  0.75rem;
+            --fs-sm:  0.875rem;
+            --fs-base: 1rem;
+            --fs-lg:  1.125rem;
+            --fs-xl:  1.25rem;
+            --fs-2xl: 1.5rem;
+            --fs-3xl: 1.875rem;
+            --fs-4xl: 2.25rem;
+            --fs-5xl: 3rem;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth; /* UI: Smooth scrolling for anchor links */
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden; /* Prevent horizontal scroll on some mobile widths */
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+
+        /* ============================================
+        LAYOUT UTILITIES
+        ============================================ */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding { padding: 60px 0; }
+        .text-center { text-align: center; }
+
+        /* Responsive Padding adjustment */
+        @media (max-width: 768px) {
+            .section-padding { padding: 40px 0; }
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--action-red);
+            color: var(--white);
+            padding: 12px 24px;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: var(--fs-sm);
+            transition: all 0.3s ease;
+        }
+        .btn:hover { 
+            background-color: #a00001; 
+            transform: translateY(-2px); /* UI: Slight lift on hover */
+            box-shadow: 0 4px 12px rgba(208, 0, 1, 0.3);
+        }
+
+        /* SVG Icon Helper */
+        .icon { width: 24px; height: 24px; display: inline-block; vertical-align: middle; }
+
+        /* ============================================
+        NAVBAR
+        ============================================ */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            width: 100%;
+        }
+
+        .logo-saporina { width: 220px; height: 65px; object-fit: contain; }
+
+        .nav-drawer { display: flex; align-items: center; gap: 10px; }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 30px;
+            margin: 0; padding: 0;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: var(--fs-sm);
+            padding: 10px 0;
+            position: relative;
+            transition: color 0.3s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 3px;
+            background: var(--accent-yellow);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active { color: var(--primary-blue); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        .nav-item-dropdown { position: relative; }
+        .products-toggle { display: flex; align-items: center; gap: 5px; }
+        .products-arrow { width: 14px; height: 14px; transition: transform 0.3s ease; }
+        .nav-item-dropdown.active .products-arrow { transform: rotate(180deg); }
+
+        .products-dropdown {
+            position: absolute;
+            top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            margin-top: 25px; /* Adjusted slightly for visual gap */
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            padding: 20px;
+            min-width: 1000px;
+            opacity: 0; visibility: hidden;
+            transition: all 0.4s ease-in-out;
+            z-index: 1001;
+        }
+        
+        /* Bridge to prevent menu closing when moving mouse from link to dropdown */
+        .products-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            background: transparent;
+        }
+
+        .nav-item-dropdown.active .products-dropdown {
+            opacity: 1; visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .products-grid-menu { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
+
+        .product-menu-item {
+            display: flex; flex-direction: column;
+            align-items: center; text-align: center;
+            padding: 12px; border-radius: 8px;
+            transition: all 0.3s ease; color: var(--text-dark); text-decoration: none;
+        }
+        .product-menu-item:hover { background: var(--bg-grey); transform: translateY(-3px); }
+        .product-menu-item img { width: 150px; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; background-color: #eee; }
+        .product-menu-item span { font-size: var(--fs-xs); font-weight: 600; color: var(--primary-blue); }
+
+        .menu-toggle {
+            display: none; flex-direction: column; gap: 5px;
+            background: none; border: none; cursor: pointer; padding: 5px; z-index: 1002;
+        }
+        .hamburger { width: 25px; height: 3px; background: var(--primary-blue); border-radius: 3px; transition: all 0.3s; }
+
+        .nav-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; }
+        .nav-overlay.active { display: block; }
+
+        .lang-dropdown { position: relative; }
+        .lang-toggle {
+            display: flex; align-items: center; gap: 8px;
+            padding: 8px 12px; background: var(--white);
+            border: 1px solid #ddd; border-radius: 25px;
+            cursor: pointer; font-weight: 600; color: var(--text-dark);
+            font-size: var(--fs-sm); transition: all 0.3s;
+        }
+        .lang-toggle .icon { width: 20px; height: 20px; }
+        .lang-toggle:hover { border-color: var(--primary-blue); color: var(--primary-blue); }
+        .lang-arrow { width: 16px; height: 16px; transition: transform 0.3s; }
+        .lang-dropdown.active .lang-arrow { transform: rotate(180deg); }
+
+        .lang-menu {
+            position: absolute; top: 100%; right: 0; margin-top: 8px;
+            background: var(--white); border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            list-style: none; padding: 8px; min-width: 180px;
+            opacity: 0; visibility: hidden; transform: translateY(-10px);
+            transition: all 0.3s; z-index: 1001;
+        }
+        .lang-dropdown.active .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        .lang-link { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; color: var(--text-dark); font-size: var(--fs-sm); text-decoration: none; }
+        .lang-link:hover { background: var(--bg-grey); }
+        .lang-link.active { background: var(--primary-blue); color: var(--white); }
+        .lang-flag { font-size: 20px; }
+
+        a:focus-visible, button:focus-visible { outline: 2px dashed var(--secondary-blue); outline-offset: 4px; }
+
+        @media (min-width: 992px) {
+            .nav-container { justify-content: space-between; gap: 0; }
+            .nav-drawer { margin-left: auto; gap: 30px; }
+        }
+
+        @media (max-width: 991px) {
+            .menu-toggle { display: flex; }
+            .nav-drawer { position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh; background: var(--white); flex-direction: column; padding: 80px 25px 25px; gap: 0; transition: right 0.3s ease; z-index: 999; box-shadow: -5px 0 20px rgba(0,0,0,0.1); overflow-y: auto; }
+            .nav-drawer.active { right: 0; }
+            .nav-menu { flex-direction: column; width: 100%; gap: 0; }
+            .nav-menu li { border-bottom: 1px solid #eee; width: 100%; }
+            .nav-link { display: flex; padding: 20px 0; font-size: var(--fs-base); width: 100%; justify-content: space-between; }
+            .nav-link::after { bottom: 10px; height: 2px; }
+            .menu-toggle.active .hamburger:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .menu-toggle.active .hamburger:nth-child(2) { opacity: 0; }
+            .menu-toggle.active .hamburger:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+            .products-dropdown { position: relative; top: 0; left: 0; transform: none; margin-top: 10px; box-shadow: none; border: 1px solid #eee; border-radius: 8px; min-width: auto; width: 100%; max-height: 0; padding: 0; overflow: hidden; opacity: 1; visibility: visible; transition: max-height 0.3s ease, padding 0.3s ease; }
+            .nav-item-dropdown.active .products-dropdown { max-height: 600px; padding: 15px; overflow-y: auto; }
+            .products-grid-menu { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .product-menu-item img { width: 100%; height: auto; aspect-ratio: 1/1; }
+            .lang-dropdown { width: 100%; margin-top: 25px; }
+            .lang-toggle { width: 100%; justify-content: center; }
+            .lang-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 1px solid #eee; margin: 10px 0; display: none; }
+            .lang-dropdown.active .lang-menu { display: block; }
+            .lang-arrow { margin-left: auto; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-saporina { width: 160px; height: auto; }
+            .products-grid-menu { grid-template-columns: 1fr; }
+            .nav-drawer { max-width: 320px; }
+        }
+
+        /* ============================================
+        CATEGORY HERO
+        ============================================ */
+        .category-hero {
+            background-color: var(--primary-blue);
+            padding: 60px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .breadcrumbs {
+            color: rgba(255,255,255,0.7);
+            font-size: var(--fs-sm);
+            margin-bottom: 15px;
+        }
+
+        .category-hero h1 { font-size: var(--fs-4xl); font-weight: 700; margin-bottom: 15px; }
+        .category-hero p { max-width: 600px; margin: 0 auto; font-size: var(--fs-lg); opacity: 0.9; }
+
+        @media (max-width: 768px) {
+            .category-hero h1 { font-size: var(--fs-3xl); }
+        }
+
+        /* ============================================
+        PRODUCT GRID
+        ============================================ */
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 600px)  { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 900px)  { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 1200px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .product-card img { width: 100%; height: 250px; object-fit: cover; background-color: #f9f9f9; }
+
+        .product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-title { font-weight: 700; color: var(--primary-blue); font-size: var(--fs-lg); margin-bottom: 5px; }
+        .product-desc { font-size: var(--fs-sm); color: #666; margin-bottom: 15px; flex-grow: 1; }
+
+        .card-btn {
+            align-self: flex-start;
+            color: var(--action-red);
+            font-weight: 700;
+            font-size: var(--fs-sm);
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+        .product-card:hover .card-btn { border-bottom-color: var(--accent-yellow); }
+
+        /* ============================================
+        PRE-FOOTER
+        ============================================ */
+        .pre-footer {
+            background-color: #f9f9f9;
+            text-align: center;
+            border-top: 5px solid var(--accent-yellow);
+        }
+
+        .pre-footer-title { color: var(--primary-blue); margin-bottom: 20px; font-size: var(--fs-2xl); }
+
+        /* ============================================
+        FOOTER
+        ============================================ */
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding-top: 60px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: start;
+            justify-items: center;
+        }
+
+        .footer-title { color: var(--accent-yellow); padding: 1rem 0; font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
+
+        .footer ul li { margin-bottom: 8px; font-size: var(--fs-sm); opacity: 0.9; }
+        .footer ul li a { text-decoration: none; color: white; transition: 0.3s; }
+        .footer ul li a:hover { color: var(--accent-yellow); opacity: 1; }
+
+        .footer-logo-box { padding: 10px 0; border-radius: 8px; display: inline-block; margin-bottom: 15px; min-height: 65px; }
+        .footer-logo-box img { width: 220px; height: 65px; object-fit: contain; }
+
+        .footer-tagline { font-size: var(--fs-sm); line-height: 1.4; margin-bottom: 20px; opacity: 0.8; max-width: 250px; margin-left: auto; margin-right: auto; }
+
+        .social-row { display: flex; gap: 10px; justify-content: center; }
+        .social-btn { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+        .social-btn:hover { background: var(--accent-yellow); }
+        .social-btn svg { width: 18px; height: 18px; fill: var(--white); }
+        .social-btn:hover svg { fill: var(--primary-blue); }
+
+        .footer-contact-item { display: flex; gap: 10px; margin-bottom: 15px; font-size: var(--fs-sm); opacity: 0.9; justify-content: center; text-align: center; }
+        .footer-contact-icon { flex-shrink: 0; fill: var(--accent-yellow); }
+
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: var(--fs-sm); opacity: 0.6; text-align: center; }
+        .footer-links a { margin: 0 10px; color: var(--white); }
+        .footer-links a:hover { color: var(--white); text-decoration: underline; }
+
+        @media (min-width: 600px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); justify-items: start; text-align: left; }
+            .footer-tagline, .footer-contact-item, .social-row { margin-left: 0; margin-right: 0; justify-content: flex-start; text-align: left; }
+        }
+        @media (min-width: 1024px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; } .footer-links a { margin-right: 0; } }
+
+        /* ============================================
+        FAB
+        ============================================ */
+        .fab {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            width: 60px; height: 60px;
+            background-color: var(--action-red);
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 2000; cursor: pointer;
+            transition: transform 0.2s, opacity 0.3s, visibility 0.3s;
+            opacity: 1; visibility: visible;
+        }
+        .fab:hover { transform: scale(1.1); }
+        .fab svg { width: 24px; height: 24px; fill: white; }
+    </style>
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<header class="navbar">
+    <nav class="container nav-container">
+        <!-- Logo: Added onerror to show placeholder if file missing -->
+        <a href="https://m0hamed8888.github.io/WorkB/V.0.0/ ">
+            <img src="./img/logo-saporina-border.svg" 
+                 onerror="this.src='https://placehold.co/220x65/211d52/ffffff?text=SAPORINA'" 
+                 loading="lazy" width="220" height="65" class="logo-saporina"
+                 alt="logo Saporina" fetchpriority="high">
+        </a>
+
+        <!-- Mobile Menu Toggle: Added aria-expanded for accessibility -->
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu" aria-expanded="false">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </button>
+
+        <!-- Nav Drawer: Menu + Language -->
+        <div class="nav-drawer" id="navDrawer">
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">ABOUT US</a></li>
+
+                <li class="nav-item-dropdown">
+                    <button class="nav-link products-toggle active" onclick="toggleProducts(event)" aria-label="Products Menu" aria-expanded="false">
+                        PRODUCTS
+                        <svg class="products-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="products-dropdown" id="productsDropdown">
+                        <div class="products-grid-menu">
+                            <a href="#" class="product-menu-item">
+                                <img src="./img/img-one.webp" onerror="this.src='https://placehold.co/150x150?text=Pizza+Sauce'" loading="lazy" alt="Pizza Sauce" width="80" height="80">
+                                <span>Pizza Sauce</span>
+                            </a>
+                            <a href="#" class="product-menu-item">
+                                <img src="./img/img-two.webp" onerror="this.src='https://placehold.co/150x150?text=Tomato+Paste'" loading="lazy" alt="Tomato Paste" width="80" height="80">
+                                <span>Tomato Paste</span>
+                            </a>
+                            <a href="#" class="product-menu-item">
+                                <img src="./img/img-three.webp" onerror="this.src='https://placehold.co/150x150?text=Passata'" loading="lazy" alt="Tomato Passata" width="80" height="80">
+                                <span>Tomato Passata</span>
+                            </a>
+                            <a href="#" class="product-menu-item">
+                                <img src="./img/img-four.webp" onerror="this.src='https://placehold.co/150x150?text=Peeled'" loading="lazy" alt="Peeled Tomato" width="80" height="80">
+                                <span>Peeled Tomato</span>
+                            </a>
+                            <a href="#" class="product-menu-item">
+                                <img src="./img/img-five.webp" onerror="this.src='https://placehold.co/150x150?text=Powder'" loading="lazy" alt="Tomato Powder" width="80" height="80">
+                                <span>Tomato Powder</span>
+                            </a>
+                            <a href="#" class="product-menu-item">
+                                <img src="./img/img-six.webp" onerror="this.src='https://placehold.co/150x150?text=Diced'" loading="lazy" alt="Diced Tomato" width="80" height="80">
+                                <span>Diced Tomato</span>
+                            </a>
+                            <a href="#" class="product-menu-item">
+                                <img src="./img/img-one.webp" onerror="this.src='https://placehold.co/150x150?text=Ketchup'" loading="lazy" alt="Tomato Ketchup" width="80" height="80">
+                                <span>Tomato Ketchup</span>
+                            </a>
+                            <a href="#" class="product-menu-item">
+                                <img src="./img/img-one.webp" onerror="this.src='https://placehold.co/150x150?text=Marinara'" loading="lazy" alt="Marinara Sauce" width="80" height="80">
+                                <span>Marinara Sauce</span>
+                            </a>
+                            <a href="#" class="product-menu-item">
+                                <img src="./img/img-one.webp" onerror="this.src='https://placehold.co/150x150?text=Crushed'" loading="lazy" alt="Crushed Tomato" width="80" height="80">
+                                <span>Crushed Tomato</span>
+                            </a>
+                            <a href="#" class="product-menu-item">
+                                <img src="./img/img-one.webp" onerror="this.src='https://placehold.co/150x150?text=Concentrate'" loading="lazy" alt="Tomato Concentrate" width="80" height="80">
+                                <span>Tomato Concentrate</span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="./Private Labelling.html" class="nav-link">PRIVATE LABELLING</a></li>
+                <li><a href="./News&MarketInsights.html" class="nav-link">NEWS & MARKET INSIGHTS</a></li>
+                <li><a href="./contactus.html" class="nav-link">CONTACT US</a></li>
+            </ul>
+
+            <!-- Language Selector -->
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-toggle" onclick="toggleLang()" aria-label="Select Language" aria-expanded="false">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span id="currentLang">EN</span>
+                    <svg class="lang-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <ul class="lang-menu" id="langMenu">
+                    <li><a href="#" class="lang-link active" data-lang="EN"><span class="lang-flag">🇺🇸</span><span>English</span></a></li>
+                    <li><a href="#" class="lang-link" data-lang="AR"><span class="lang-flag">🇸🇦</span><span>العربية</span></a></li>
+                    <li><a href="#" class="lang-link" data-lang="FR"><span class="lang-flag">🇫🇷</span><span>Français</span></a></li>
+                    <li><a href="#" class="lang-link" data-lang="DE"><span class="lang-flag">🇩🇪</span><span>Deutsch</span></a></li>
+                    <li><a href="#" class="lang-link" data-lang="ES"><span class="lang-flag">🇪🇸</span><span>Español</span></a></li>
+                    <li><a href="#" class="lang-link" data-lang="IT"><span class="lang-flag">🇮🇹</span><span>Italiano</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Overlay (Mobile) -->
+        <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
+    </nav>
+</header>
+
+<!-- ==================== CATEGORY HERO ==================== -->
+<section class="category-hero">
+    <div class="container">
+        <div class="breadcrumbs">Home &gt; Tomato Products &amp; Sauces</div>
+        <h1>TOMATO PRODUCTS & SAUCES</h1>
+        <p>Experience the authentic taste of premium, sun-ripened Egyptian tomatoes. Saporina supplies high-quality tomato pastes, sauces, and passatas tailored for Retail, Food Service (HORECA), and Industrial sectors worldwide.</p>
+    </div>
+</section>
+
+<!-- Floating Action Button -->
+<a href="#" class="fab" aria-label="Contact us">
+    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+</a>
+
+<!-- ==================== PRODUCT GRID ==================== -->
+<section class="section-padding">
+    <div class="container">
+        <div class="products-grid">
+
+            <a href="#" class="product-card">
+                <img src="https://placehold.co/400x300?text=Tomato+Paste" alt="Tomato Paste">
+                <div class="product-info">
+                    <div class="product-title">Tomato Paste</div>
+                    <p class="product-desc">Double and triple concentrated paste (28-30% / 36-38% Brix).</p>
+                    <span class="card-btn">View Details</span>
+                </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <img src="https://placehold.co/400x300?text=Tomato+Puree" alt="Tomato Puree (Passata)">
+                <div class="product-info">
+                    <div class="product-title">Tomato Puree (Passata)</div>
+                    <p class="product-desc">Velvety, uncooked tomato puree with a fresh, sweet taste.</p>
+                    <span class="card-btn">View Details</span>
+                </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <img src="https://placehold.co/400x300?text=Pizza+Sauce" alt="Pizza Sauce">
+                <div class="product-info">
+                    <div class="product-title">Pizza Sauce</div>
+                    <p class="product-desc">Consistent viscosity and rich flavor, optimized for high-temperature ovens.</p>
+                    <span class="card-btn">View Details</span>
+                </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <img src="https://placehold.co/400x300?text=Whole+Peeled" alt="Whole Peeled Tomato">
+                <div class="product-info">
+                    <div class="product-title">Whole Peeled Tomato</div>
+                    <p class="product-desc">Selected plum or round tomatoes preserved in rich tomato juice.</p>
+                    <span class="card-btn">View Details</span>
+                </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <img src="https://placehold.co/400x300?text=Tomato+Powder" alt="Tomato Powder">
+                <div class="product-info">
+                    <div class="product-title">Tomato Powder</div>
+                    <p class="product-desc">Spray-dried tomato powder for seasonings and dry mixes.</p>
+                    <span class="card-btn">View Details</span>
+                </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <img src="https://placehold.co/400x300?text=Sun+Dried+Tomato" alt="Sun Dried Tomato">
+                <div class="product-info">
+                    <div class="product-title">Sun Dried Tomato</div>
+                    <p class="product-desc">Intense tomato flavor, naturally dried and preserved for maximum taste.</p>
+                    <span class="card-btn">View Details</span>
+                </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <img src="https://placehold.co/400x300?text=Ketchup" alt="Ketchup">
+                <div class="product-info">
+                    <div class="product-title">Ketchup</div>
+                    <p class="product-desc">Classic rich tomato ketchup with a perfect balance of sweetness and tang.</p>
+                    <span class="card-btn">View Details</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SEO CONTENT BLOCK ==================== -->
+<section class="section-padding" style="background-color: #fcfcfc; border-top: 1px solid #eee;">
+    <div class="container">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2 style="font-size: var(--fs-2xl); color: var(--primary-blue); margin-bottom: 1.5rem; text-align: center;">Premium Wholesale Tomato Products from Egypt</h2>
+            <div style="color: #444; font-size: var(--fs-lg); line-height: 1.8;">
+                <p style="margin-bottom: 25px;">
+                    Saporina specializes in the manufacturing and export of high-quality tomato derivatives sourced directly from Egypt's fertile lands. Our range—including <strong>Cold & Hot Break Tomato Paste</strong>, <strong>Pizza Sauce</strong>, and <strong>Passata</strong>—is engineered for the <strong>Retail</strong>, <strong>Food Service (HORECA)</strong>, and <strong>Industrial</strong> sectors. We guarantee consistent Brix levels, vibrant color, and optimal viscosity in every batch.
+                </p>
+                <p>
+                    We offer flexible packaging solutions ranging from <strong>Aseptic Bags in Steel Drums (220lt)</strong> for industrial reprocessing to branded <strong>canned retail sizes</strong>. Committed to international food safety standards (ISO & HACCP), Saporina is your trusted partner for <strong>Private Label (OEM)</strong> manufacturing, offering recipe adaptation and end-to-end logistical support for global markets.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PRE-FOOTER ==================== -->
+<section class="section-padding pre-footer">
+    <div class="container">
+        <h2 class="pre-footer-title">Ready to experience the Saporina Standard?</h2>
+        <button class="btn">Request a Quote</button>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+
+            <!-- Col 1: Brand + Social -->
+            <div>
+                <div class="footer-logo-box">
+                    <img src="./img/logo-saporina1.svg" 
+                         onerror="this.src='https://placehold.co/220x65/ffffff/211d52?text=SAPORINA'" 
+                         loading="lazy" alt="logo Saporina footer" width="220" height="65">
+                </div>
+                <p class="footer-tagline">Premium Egyptian Food Manufacturing & Export.</p>
+                <nav class="social-row" aria-label="Social media links">
+                    <a href="#" class="social-btn" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9V12.06h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.93h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"/></svg>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Col 2: Corporate Policies -->
+            <nav>
+                <h3 class="footer-title">CORPORATE POLICIES</h3>
+                <ul>
+                    <li><a href="#">Business Code of Conduct</a></li>
+                    <li><a href="#">Anti-bribery Policy</a></li>
+                    <li><a href="#">Ethical Trading Initiative</a></li>
+                    <li><a href="#">CSR Strategy</a></li>
+                    <li><a href="#">Management Objectives</a></li>
+                </ul>
+            </nav>
+
+            <!-- Col 3: Our Commitments -->
+            <nav>
+                <h3 class="footer-title">OUR COMMITMENTS</h3>
+                <ul>
+                    <li><a href="#">Environmental Performance</a></li>
+                    <li><a href="#">Equality Plan</a></li>
+                    <li><a href="#">Commitment Against Harassment</a></li>
+                    <li><a href="#">Responsible Channel</a></li>
+                    <li><a href="#">Corporate Policy</a></li>
+                </ul>
+            </nav>
+
+            <!-- Col 4: Sales Office -->
+            <address>
+                <h3 class="footer-title">SALES OFFICE</h3>
+                <div class="footer-contact-item">
+                    <svg class="icon footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <div>10th of Ramadan City,<br>Egypt.</div>
+                </div>
+                <div class="footer-contact-item">
+                    <svg class="icon footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                    </svg>
+                    <div>Sun - Thu: 8:00 AM - 5:00 PM<br>(GMT+2)</div>
+                </div>
+            </address>
+
+        </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Saporina. All rights reserved.</p>
+            <nav class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Cookies</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+    /* ---- Navbar ---- */
+    function toggleMenu() {
+        const drawer  = document.getElementById('navDrawer');
+        const overlay = document.getElementById('navOverlay');
+        const toggle  = document.querySelector('.menu-toggle');
+        
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !isExpanded);
+        
+        drawer.classList.toggle('active');
+        overlay.classList.toggle('active');
+        toggle.classList.toggle('active');
+        document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+    }
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (!link.classList.contains('products-toggle')) {
+                if (document.getElementById('navDrawer').classList.contains('active')) toggleMenu();
+            }
+        });
+    });
+
+    function toggleProducts(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const btn = document.querySelector('.products-toggle');
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !isExpanded);
+        
+        document.querySelector('.nav-item-dropdown').classList.toggle('active');
+    }
+
+    document.addEventListener('click', function(e) {
+        const dropdown = document.querySelector('.nav-item-dropdown');
+        if (dropdown && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('active');
+            document.querySelector('.products-toggle').setAttribute('aria-expanded', 'false');
+        }
+        
+        const ld = document.getElementById('langDropdown');
+        if (ld && !ld.contains(e.target)) {
+            ld.classList.remove('active');
+            document.querySelector('.lang-toggle').setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const pd = document.querySelector('.products-dropdown');
+        if (pd) pd.addEventListener('click', e => e.stopPropagation());
+    });
+
+    function toggleLang() {
+        const btn = document.querySelector('.lang-toggle');
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !isExpanded);
+        
+        document.getElementById('langDropdown').classList.toggle('active');
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key !== 'Escape') return;
+        const pd = document.querySelector('.nav-item-dropdown');
+        if (pd && pd.classList.contains('active')) {
+            pd.classList.remove('active');
+            document.querySelector('.products-toggle').setAttribute('aria-expanded', 'false');
+        }
+        if (document.getElementById('navDrawer').classList.contains('active')) toggleMenu();
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const path    = window.location.pathname;
+        const langMap = { '/en/': 'EN', '/ar/': 'AR', '/fr/': 'FR', '/de/': 'DE', '/es/': 'ES', '/it/': 'IT' };
+        let current   = 'EN';
+        for (let [url, code] of Object.entries(langMap)) {
+            if (path.startsWith(url)) current = code;
+        }
+        document.getElementById('currentLang').textContent = current;
+        document.querySelectorAll('.lang-link').forEach(link => {
+            link.classList.toggle('active', link.dataset.lang === current);
+        });
+    });
+
+    /* ---- FAB Scroll Visibility ---- */
+    window.addEventListener('scroll', function() {
+        const fab        = document.querySelector('.fab');
+        const preFooter  = document.querySelector('.pre-footer');
+        const scrollPos  = window.scrollY;
+        
+        // Guard clause in case elements are missing
+        if(!preFooter || !fab) return;
+
+        const preFooterTop = preFooter.offsetTop;
+        const windowHeight = window.innerHeight;
+
+        if (scrollPos < (preFooterTop - windowHeight + 100)) {
+            fab.style.opacity    = '1';
+            fab.style.visibility = 'visible';
+        } else {
+            fab.style.opacity    = '0';
+            fab.style.visibility = 'hidden';
+        }
+    });
+</script>
+
+</body>
+</html>

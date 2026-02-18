@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Saporina Market Insights - Data-driven crop reports, global pricing trends, and supply chain news for the processed food industry.">
+    <title>News & Market Insights - Saporina</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Saporina Market Insights",
+      "description": "Data-driven crop reports and supply chain news.",
+      "url": "https://saporina.com/news"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           1. CSS ROOT VARIABLES (GLOBAL DESIGN TOKENS)
+        ============================================= */
+        :root {
+            /* Colors */
+            --primary-blue:   #211d52;
+            --secondary-blue: #3f53a1;
+            --accent-yellow:  #f2b800;
+            --action-red:     #d00001;
+            --brand-orange:   #eb5d00;
+            --nature-green:   #5f8748;
+            --text-dark:      #333333;
+            --text-light:     #555555;
+            --bg-grey:        #F4F6F8;
+            --border-color:   #e0e0e0;
+            --white:          #ffffff;
+
+            /* Typography */
+            --font-primary: 'IBM Plex Sans', Arial, sans-serif;
+            --fs-xs:   0.75rem;
+            --fs-sm:   0.875rem;
+            --fs-base: 1rem;
+            --fs-lg:   1.125rem;
+            --fs-xl:   1.25rem;
+            --fs-2xl:  1.5rem;
+            --fs-3xl:  1.875rem;
+            --fs-4xl:  2.25rem;
+            --fs-5xl:  3rem;
+        }
+
+        /* =============================================
+           2. GLOBAL RESET & BASE
+        ============================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+        a   { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul  { list-style: none; }
+
+        .container      { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .section-padding { padding: 80px 0; }
+        .icon           { width: 24px; height: 24px; display: inline-block; vertical-align: middle; }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--action-red);
+            color: var(--white);
+            padding: 12px 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 4px;
+            border: 2px solid var(--action-red);
+            cursor: pointer;
+            font-size: var(--fs-sm);
+            font-family: var(--font-primary);
+            transition: all 0.3s;
+        }
+        .btn:hover       { background-color: #a00001; border-color: #a00001; }
+        .btn-green       { background-color: var(--nature-green); border-color: var(--nature-green); }
+        .btn-green:hover { background-color: #4a6b38; border-color: #4a6b38; }
+        .btn-orange      { background-color: var(--brand-orange); border-color: var(--brand-orange); }
+        .btn-orange:hover { background-color: #d15200; border-color: #d15200; }
+
+        .section-title {
+            font-size: var(--fs-4xl);
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 4px;
+            background-color: var(--accent-yellow);
+            margin-top: 5px;
+        }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px dashed var(--secondary-blue);
+            outline-offset: 4px;
+        }
+
+        /* =============================================
+           3. NAVBAR COMPONENT
+        ============================================= */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            min-height: 80px;
+            display: flex;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo-saporina { width: 220px; height: 65px; }
+
+        .nav-drawer { display: flex; align-items: center; gap: 10px; }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: var(--fs-sm);
+            padding: 10px 0;
+            position: relative;
+            transition: color 0.3s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 3px;
+            background: var(--accent-yellow);
+            transition: width 0.3s;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--primary-blue); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        /* Products Dropdown */
+        .nav-item-dropdown { position: relative; }
+        .products-toggle   { display: flex; align-items: center; gap: 5px; }
+        .products-arrow    { width: 14px; height: 14px; transition: transform 0.3s ease; }
+        .nav-item-dropdown.active .products-arrow { transform: rotate(180deg); }
+
+        .products-dropdown {
+            position: absolute;
+            top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            margin-top: 15px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            padding: 20px;
+            min-width: 1000px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease-in-out;
+            z-index: 1001;
+        }
+        .nav-item-dropdown.active .products-dropdown {
+            opacity: 1; visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .products-grid-menu { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
+
+        .product-menu-item {
+            display: flex; flex-direction: column;
+            align-items: center; text-align: center;
+            padding: 12px; border-radius: 8px;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+        }
+        .product-menu-item:hover { background: var(--bg-grey); transform: translateY(-3px); }
+        .product-menu-item img   { width: 150px; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
+        .product-menu-item span  { font-size: var(--fs-xs); font-weight: 600; color: var(--primary-blue); }
+
+        /* Mobile Toggle */
+        .menu-toggle {
+            display: none; flex-direction: column; gap: 5px;
+            background: none; border: none; cursor: pointer; padding: 5px; z-index: 1002;
+        }
+        .hamburger { width: 25px; height: 3px; background: var(--primary-blue); border-radius: 3px; transition: all 0.3s; }
+
+        .nav-overlay {
+            display: none; position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); z-index: 998;
+        }
+        .nav-overlay.active { display: block; }
+
+        /* Language Dropdown */
+        .lang-dropdown { position: relative; }
+        .lang-toggle {
+            display: flex; align-items: center; gap: 8px;
+            padding: 8px 12px;
+            background: var(--white); border: 1px solid #ddd; border-radius: 25px;
+            cursor: pointer; font-weight: 600; color: var(--text-dark);
+            font-size: var(--fs-sm); font-family: var(--font-primary); transition: all 0.3s;
+        }
+        .lang-toggle .icon { width: 20px; height: 20px; }
+        .lang-toggle:hover { border-color: var(--primary-blue); color: var(--primary-blue); }
+        .lang-arrow { width: 16px; height: 16px; transition: transform 0.3s; }
+        .lang-dropdown.active .lang-arrow { transform: rotate(180deg); }
+
+        .lang-menu {
+            position: absolute; top: 100%; right: 0; margin-top: 8px;
+            background: var(--white); border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            list-style: none; padding: 8px; min-width: 180px;
+            opacity: 0; visibility: hidden; transform: translateY(-10px);
+            transition: all 0.3s; z-index: 1001;
+        }
+        .lang-dropdown.active .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .lang-link { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; color: var(--text-dark); font-size: var(--fs-sm); }
+        .lang-link:hover  { background: var(--bg-grey); }
+        .lang-link.active { background: var(--primary-blue); color: var(--white); }
+        .lang-flag        { font-size: 20px; }
+
+        /* Navbar Responsive */
+        @media (min-width: 992px) {
+            .nav-container { justify-content: flex-start; gap: 60px; }
+            .nav-drawer    { margin-left: auto; gap: 60px; }
+        }
+
+        @media (max-width: 991px) {
+            .menu-toggle { display: flex; }
+
+            .nav-drawer {
+                position: fixed; top: 0; right: -100%;
+                width: 100%; max-width: 490px; height: 100vh;
+                background: var(--white); flex-direction: column;
+                padding: 80px 25px 25px; gap: 0;
+                transition: right 0.3s ease; z-index: 999;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1); overflow-y: auto;
+            }
+            .nav-drawer.active { right: 0; }
+            .nav-menu          { flex-direction: column; width: 100%; gap: 0; }
+            .nav-menu li       { border-bottom: 1px solid #eee; }
+            .nav-link          { display: block; padding: 20px 0; font-size: var(--fs-base); width: 100%; text-align: center; }
+            .nav-link::after   { bottom: 10px; height: 2px; }
+
+            .menu-toggle.active .hamburger:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .menu-toggle.active .hamburger:nth-child(2) { opacity: 0; }
+            .menu-toggle.active .hamburger:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+            .products-dropdown {
+                position: relative; top: 0; transform: none; margin-top: 10px;
+                box-shadow: none; border: 1px solid #eee; border-radius: 8px;
+                min-width: auto; width: 100%; max-height: 0; padding: 0; overflow: hidden;
+                opacity: 1; visibility: visible; transition: max-height 0.3s ease, padding 0.3s ease;
+            }
+            .nav-item-dropdown.active .products-dropdown { max-height: 500px; padding: 15px; overflow-y: auto; }
+            .products-grid-menu { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .product-menu-item img { width: 135px; height: 120px; }
+
+            .lang-dropdown { width: 100%; margin-top: 15px; }
+            .lang-toggle   { width: 100%; justify-content: center; }
+            .lang-menu     { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 1px solid #eee; margin: 10px 0; display: none; }
+            .lang-dropdown.active .lang-menu { display: block; }
+            .lang-arrow    { margin-left: auto; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-saporina      { width: 140px; height: auto; }
+            .products-grid-menu { grid-template-columns: 1fr; }
+            .nav-drawer         { max-width: 320px; }
+        }
+
+        /* =============================================
+           4. PAGE SECTIONS
+        ============================================= */
+        .news-hero {
+            position: relative;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 100px 0;
+            overflow: hidden;
+        }
+        .news-hero::before {
+            content: '';
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            opacity: 0.1; mix-blend-mode: overlay;
+        }
+        .news-hero-content { position: relative; z-index: 1; max-width: 800px; }
+        .news-hero h1 { font-size: var(--fs-5xl); font-weight: 700; margin-bottom: 20px; line-height: 1.1; }
+        .news-hero p  { font-size: var(--fs-xl); font-weight: 300; opacity: 0.9; }
+
+        /* Featured */
+        .featured-section { padding: 60px 0; background-color: var(--white); border-bottom: 1px solid var(--border-color); }
+        .featured-grid    { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+        @media (min-width: 900px) { .featured-grid { grid-template-columns: 1.2fr 0.8fr; } }
+
+        .featured-tag {
+            display: inline-block; background-color: var(--secondary-blue); color: var(--white);
+            padding: 5px 12px; font-size: var(--fs-xs); font-weight: 700;
+            text-transform: uppercase; border-radius: 4px; margin-bottom: 15px; margin-right: 5px;
+        }
+        .tag-category     { background-color: var(--nature-green); }
+        .featured-content h2 { font-size: var(--fs-4xl); color: var(--primary-blue); margin-bottom: 20px; line-height: 1.2; }
+        .featured-excerpt    { font-size: var(--fs-lg); color: var(--text-light); margin-bottom: 30px; max-width: 90%; }
+        .featured-img-wrap   { height: 350px; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .featured-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .featured-img-wrap:hover img { transform: scale(1.05); }
+
+        /* Filter */
+        .filter-section { padding: 40px 0 20px 0; background-color: var(--bg-grey); }
+        .filter-list    { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+        .filter-btn {
+            background-color: var(--white); color: var(--text-light);
+            border: 1px solid #ccc; padding: 10px 25px; border-radius: 50px;
+            font-weight: 600; font-size: var(--fs-sm); cursor: pointer;
+            font-family: var(--font-primary); transition: all 0.3s;
+        }
+        .filter-btn:hover  { border-color: var(--primary-blue); color: var(--primary-blue); }
+        .filter-btn.active { background-color: var(--primary-blue); color: var(--white); border-color: var(--primary-blue); }
+
+        /* Grid */
+        .grid-section { padding: 40px 0 80px 0; background-color: var(--bg-grey); }
+        .news-grid    { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        @media (min-width: 768px)  { .news-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .news-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .article-card {
+            background: var(--white); border-radius: 8px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
+            display: flex; flex-direction: column; height: 100%;
+        }
+        .article-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .article-img  { height: 200px; width: 100%; object-fit: cover; }
+        .article-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .article-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; }
+        .tag      { color: var(--secondary-blue); }
+        .tag-tech { color: var(--brand-orange); }
+        .tag-corp { color: var(--nature-green); }
+        .read-time { margin-left: auto; color: #aaa; font-weight: 400; font-size: 0.7rem; display: flex; align-items: center; gap: 3px; }
+        .article-title { font-size: var(--fs-lg); color: var(--primary-blue); font-weight: 700; margin-bottom: 15px; line-height: 1.4; }
+        .article-title:hover { color: var(--secondary-blue); }
+        .article-desc  { font-size: var(--fs-sm); color: var(--text-light); margin-bottom: 20px; flex-grow: 1; }
+        .read-more { color: var(--action-red); font-weight: 700; font-size: var(--fs-sm); display: flex; align-items: center; gap: 5px; }
+        .read-more:hover { gap: 8px; }
+
+        /* Pagination */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 50px; }
+        .page-link  { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background-color: var(--white); border: 1px solid #ddd; color: var(--text-light); font-weight: 600; transition: 0.3s; }
+        .page-link:hover  { border-color: var(--primary-blue); color: var(--primary-blue); }
+        .page-link.active { background-color: var(--primary-blue); color: var(--white); border-color: var(--primary-blue); }
+
+        /* Newsletter */
+        .newsletter-section  { background-color: var(--primary-blue); color: var(--white); }
+        .newsletter-box      { max-width: 800px; margin: 0 auto; text-align: center; }
+        .newsletter-box .section-title { color: var(--white); }
+        .newsletter-subtitle { margin-bottom: 20px; color: rgba(255,255,255,0.8); }
+        .newsletter-form     { display: flex; gap: 10px; max-width: 500px; margin: 30px auto 0; flex-wrap: wrap; }
+        .newsletter-input {
+            flex: 1; padding: 12px 15px;
+            border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.15);
+            color: var(--white); border-radius: 4px; font-family: var(--font-primary); min-width: 250px;
+        }
+        .newsletter-input::placeholder { color: rgba(255,255,255,0.7); }
+        .newsletter-input:focus { outline: none; border-color: var(--accent-yellow); background: rgba(255,255,255,0.25); }
+        .newsletter-disclaimer { font-size: var(--fs-xs); color: rgba(255,255,255,0.5); margin-top: 15px; }
+
+        /* Pre-footer */
+        .pre-footer       { background-color: #f9f9f9; text-align: center; border-top: 5px solid var(--accent-yellow); }
+        .pre-footer-title { color: var(--primary-blue); margin-bottom: 20px; }
+
+        /* =============================================
+           5. FOOTER COMPONENT
+        ============================================= */
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding-top: 60px; padding-bottom: 20px;
+            text-align: center;
+        }
+
+        .footer-grid {
+            display: grid; grid-template-columns: 1fr;
+            gap: 40px; margin-bottom: 40px;
+            align-items: start; justify-items: center;
+        }
+
+        .footer-title {
+            color: var(--accent-yellow); padding: 1rem 0;
+            font-size: var(--fs-sm); text-transform: uppercase;
+            letter-spacing: 0.5px; font-weight: 700;
+        }
+        h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+}
+
+address {
+    font-style: normal;
+}
+
+        .footer ul li       { margin-bottom: 8px; font-size: var(--fs-sm); opacity: 0.9; }
+        .footer ul li a:hover { color: var(--accent-yellow); opacity: 1; }
+
+        .footer-logo-box { padding: 10px 0; border-radius: 8px; display: inline-block; margin-bottom: 15px; min-height: 65px; }
+        .footer-logo-box svg { width: 220px; height: 65px; }
+
+        .footer-tagline { font-size: var(--fs-sm); line-height: 1.4; margin-bottom: 20px; opacity: 0.8; max-width: 250px; margin-left: auto; margin-right: auto; }
+
+        .social-row  { display: flex; gap: 10px; justify-content: center; }
+        .social-btn  { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+        .social-btn:hover     { background: var(--accent-yellow); }
+        .social-btn svg       { width: 18px; height: 18px; fill: var(--white); }
+        .social-btn:hover svg { fill: var(--primary-blue); }
+
+        .footer-contact-item { display: flex; gap: 10px; margin-bottom: 15px; font-size: var(--fs-sm); opacity: 0.9; justify-content: center; text-align: center; }
+        .footer-contact-icon { flex-shrink: 0; fill: var(--accent-yellow); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;
+            display: flex; flex-direction: column; align-items: center;
+            gap: 10px; font-size: var(--fs-sm); opacity: 0.6; text-align: center;
+        }
+        .footer-links a       { margin: 0 10px; }
+        .footer-links a:hover { color: var(--white); text-decoration: underline; }
+
+        @media (min-width: 600px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); justify-items: start; text-align: left; }
+            .footer-tagline, .footer-contact-item, .social-row { margin-left: 0; margin-right: 0; justify-content: flex-start; text-align: left; }
+        }
+        @media (min-width: 1024px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (min-width: 768px) {
+            .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
+            .footer-links a { margin-right: 0; }
+        }
+
+        /* FAB */
+        .fab {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 60px; height: 60px;
+            background-color: var(--action-red); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 2000;
+            cursor: pointer; transition: transform 0.2s, opacity 0.3s, visibility 0.3s;
+            opacity: 0; visibility: hidden; pointer-events: none;
+        }
+        .fab.visible { opacity: 1; visibility: visible; pointer-events: auto; }
+        .fab:hover   { transform: scale(1.1); }
+        .fab svg     { width: 24px; height: 24px; fill: white; }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="navbar">
+        <nav class="container nav-container">
+
+         <a href="https://m0hamed8888.github.io/WorkB/V.0.0/">
+                <img src="./img/logo-saporina-border.svg" loading="lazy" width="220" height="65" class="logo-saporina"
+                    alt="logo Saporina" fetchpriority="high">
+            </a>
+
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+
+            <div class="nav-drawer" id="navDrawer">
+                <ul class="nav-menu">
+                    <li><a href="about.html" class="nav-link">ABOUT US</a></li>
+
+                    <li class="nav-item-dropdown">
+                        <button class="nav-link products-toggle" onclick="toggleProducts(event)" aria-label="Products Menu">
+                            PRODUCTS
+                            <svg class="products-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="products-dropdown" id="productsDropdown">
+                            <div class="products-grid-menu">
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=150&h=150&auto=format&fit=crop" loading="lazy" alt="Pizza Sauce" width="150" height="150"><span>Pizza Sauce</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=150&h=150&auto=format&fit=crop" loading="lazy" alt="Tomato Paste" width="150" height="150"><span>Tomato Paste</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=150&h=150&auto=format&fit=crop" loading="lazy" alt="Tomato Passata" width="150" height="150"><span>Tomato Passata</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=150&h=150&auto=format&fit=crop" loading="lazy" alt="Peeled Tomato" width="150" height="150"><span>Peeled Tomato</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=150&h=150&auto=format&fit=crop" loading="lazy" alt="Tomato Powder" width="150" height="150"><span>Tomato Powder</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=150&h=150&auto=format&fit=crop" loading="lazy" alt="Diced Tomato" width="150" height="150"><span>Diced Tomato</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=150&h=150&auto=format&fit=crop" loading="lazy" alt="Tomato Ketchup" width="150" height="150"><span>Tomato Ketchup</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=150&h=150&auto=format&fit=crop" loading="lazy" alt="Marinara Sauce" width="150" height="150"><span>Marinara Sauce</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=150&h=150&auto=format&fit=crop" loading="lazy" alt="Crushed Tomato" width="150" height="150"><span>Crushed Tomato</span></a>
+                                <a href="#" class="product-menu-item"><img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=150&h=150&auto=format&fit=crop" loading="lazy" alt="Tomato Concentrate" width="150" height="150"><span>Tomato Concentrate</span></a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="private-label.html" class="nav-link">PRIVATE LABELLING</a></li>
+                    <li><a href="news.html" class="nav-link active">NEWS &amp; MARKET INSIGHTS</a></li>
+                    <li><a href="contactus.html" class="nav-link">CONTACT US</a></li>
+                </ul>
+
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-toggle" onclick="toggleLang()" aria-label="Select Language">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span id="currentLang">EN</span>
+                        <svg class="lang-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="lang-menu" id="langMenu">
+                        <li><a href="#" class="lang-link active" data-lang="EN"><span class="lang-flag">&#127482;&#127480;</span><span>English</span></a></li>
+                        <li><a href="#" class="lang-link" data-lang="AR"><span class="lang-flag">&#127480;&#127462;</span><span>&#x627;&#x644;&#x639;&#x631;&#x628;&#x64A;&#x629;</span></a></li>
+                        <li><a href="#" class="lang-link" data-lang="FR"><span class="lang-flag">&#127467;&#127479;</span><span>Fran&#231;ais</span></a></li>
+                        <li><a href="#" class="lang-link" data-lang="DE"><span class="lang-flag">&#127465;&#127466;</span><span>Deutsch</span></a></li>
+                        <li><a href="#" class="lang-link" data-lang="ES"><span class="lang-flag">&#127466;&#127480;</span><span>Espa&#241;ol</span></a></li>
+                        <li><a href="#" class="lang-link" data-lang="IT"><span class="lang-flag">&#127470;&#127481;</span><span>Italiano</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
+        </nav>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <header class="news-hero">
+        <div class="container news-hero-content">
+            <h1>Market Insights &amp;<br>Corporate News</h1>
+            <p>Data-driven insights on Egyptian crop cycles, global pricing trends, and supply chain dynamics to help you source smarter.</p>
+        </div>
+    </header>
+
+    <!-- ==================== FEATURED INSIGHT ==================== -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="featured-grid">
+                <div class="featured-content">
+                    <span class="featured-tag">REPORT</span>
+                    <span class="featured-tag tag-category">TOMATO</span>
+                    <h2>Egypt Winter Tomato Crop 2026: Yield Analysis &amp; Price Forecast.</h2>
+                    <p class="featured-excerpt">The winter harvest in the Nile Delta shows exceptional Brix levels due to stable weather conditions. However, global demand for industrial paste is driving spot prices up. Read our full analysis on booking strategies for Q2.</p>
+                    <a href="#" class="btn btn-green">Read Full Report</a>
+                </div>
+                <div class="featured-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?q=80&w=800&auto=format&fit=crop" alt="Tomato Yield Analysis">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FILTER TABS ==================== -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-list" id="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Updates</button>
+                <button class="filter-btn" data-filter="market">Market Trends</button>
+                <button class="filter-btn" data-filter="technical">Product Guides</button>
+                <button class="filter-btn" data-filter="company">Company News</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INSIGHT GRID ==================== -->
+    <section class="grid-section">
+        <div class="container">
+            <div class="news-grid" id="news-grid">
+
+                <article class="article-card" data-category="market">
+                    <img src="https://images.unsplash.com/photo-1591871903698-095a539b788a?q=80&w=600&auto=format&fit=crop" class="article-img" alt="Olives">
+                    <div class="article-body">
+                        <div class="article-meta"><span class="tag">Market Trends</span><span class="read-time">&#9201; 3 min read</span></div>
+                        <h3 class="article-title">Kalamata Harvest Update: Size Distribution Shift.</h3>
+                        <p class="article-desc">Early reports indicate a scarcity of Jumbo sizes this season. We analyze the impact on HORECA pricing.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="article-card" data-category="company">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop" class="article-img" alt="Port">
+                    <div class="article-body">
+                        <div class="article-meta"><span class="tag tag-corp">Logistics</span><span class="read-time">&#9201; 4 min read</span></div>
+                        <h3 class="article-title">Red Sea Logistics Update: Saporina's Alternative Routes.</h3>
+                        <p class="article-desc">How we are mitigating transit delays to EU ports using direct feeder vessels from Damietta.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="article-card" data-category="technical">
+                    <img src="https://images.unsplash.com/photo-1528697203043-7335dc12da66?q=80&w=600&auto=format&fit=crop" class="article-img" alt="Lab Testing">
+                    <div class="article-body">
+                        <div class="article-meta"><span class="tag tag-tech">Technical</span><span class="read-time">&#9201; 6 min read</span></div>
+                        <h3 class="article-title">Cold Break vs. Hot Break: Choosing the Right Paste.</h3>
+                        <p class="article-desc">A technical guide for R&amp;D managers on viscosity retention and pectin breakdown for industrial sauces.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="article-card" data-category="company">
+                    <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=600&auto=format&fit=crop" class="article-img" alt="Farmland">
+                    <div class="article-body">
+                        <div class="article-meta"><span class="tag tag-corp">Company News</span><span class="read-time">&#9201; 2 min read</span></div>
+                        <h3 class="article-title">Saporina Expands Contract Farming Acreage by 20%.</h3>
+                        <p class="article-desc">Securing raw material supply for the 2027 season through direct partnerships with Ismailia growers.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="article-card" data-category="technical">
+                    <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?q=80&w=600&auto=format&fit=crop" class="article-img" alt="Container">
+                    <div class="article-body">
+                        <div class="article-meta"><span class="tag tag-tech">Product Guides</span><span class="read-time">&#9201; 5 min read</span></div>
+                        <h3 class="article-title">Aseptic vs. Canned: Optimizing Logistics Costs.</h3>
+                        <p class="article-desc">A comparative analysis of freight efficiency and storage density for industrial buyers.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="article-card" data-category="company">
+                    <img src="https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?q=80&w=600&auto=format&fit=crop" class="article-img" alt="Port Crane">
+                    <div class="article-body">
+                        <div class="article-meta"><span class="tag tag-corp">Company News</span><span class="read-time">&#9201; 3 min read</span></div>
+                        <h3 class="article-title">Logistics Update: New Direct Feeder Routes to Valencia.</h3>
+                        <p class="article-desc">Reducing transit times to Spain and Southern Europe by 5 days for the upcoming olive season.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">&rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NEWSLETTER ==================== -->
+    <section class="section-padding newsletter-section">
+        <div class="container newsletter-box">
+            <h2 class="section-title">Don't Buy Blind.</h2>
+            <p class="newsletter-subtitle">Join 100+ Procurement Managers. Get our Monthly Crop Report delivered to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your business email address" required>
+                <button type="submit" class="btn btn-orange">Subscribe</button>
+            </form>
+            <p class="newsletter-disclaimer">We respect your inbox. Unsubscribe at any time.</p>
+        </div>
+    </section>
+
+    <!-- ==================== PRE-FOOTER ==================== -->
+    <section class="section-padding pre-footer">
+        <div class="container">
+            <h2 class="pre-footer-title">Ready to experience the Saporina Standard?</h2>
+            <button class="btn">Contact Us</button>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div>
+                    <div class="footer-logo-box">
+                        <img src="./img/logo-saporina1.svg" loading="lazy" alt="logo Saporina footer" width="220"
+                            height="65">
+                    </div>
+                    <p class="footer-tagline">Premium Egyptian Food Manufacturing &amp; Export.</p>
+                    <nav class="social-row" aria-label="Social media links">
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+                        <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9V12.06h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.93h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/></svg></a>
+                        <a href="#" class="social-btn" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23z"/></svg></a>
+                    </nav>
+                </div>
+
+                <nav>
+                    <h3 class="footer-title">CORPORATE POLICIES</h3>
+                    <ul>
+                        <li><a href="#">Business Code of Conduct</a></li>
+                        <li><a href="#">Anti-bribery Policy</a></li>
+                        <li><a href="#">Ethical Trading Initiative</a></li>
+                        <li><a href="#">CSR Strategy</a></li>
+                    </ul>
+                </nav>
+
+                <nav>
+                    <h3 class="footer-title">OUR COMMITMENTS</h3>
+                    <ul>
+                        <li><a href="#">Equality Plan</a></li>
+                        <li><a href="#">Commitment Against Harassment</a></li>
+                        <li><a href="#">Responsible Channel</a></li>
+                        <li><a href="#">Corporate Policy</a></li>
+                    </ul>
+                </nav>
+
+                <address>
+                    <h3 class="footer-title">SALES OFFICE</h3>
+                    <div class="footer-contact-item">
+                        <svg class="icon footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <div>10th of Ramadan City,<br>Egypt.</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg class="icon footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        <div>Sun - Thu: 8:00 AM - 5:00 PM<br>(GMT+2)</div>
+                    </div>
+                </address>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Saporina. All rights reserved.</p>
+                <nav class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookies</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAB -->
+    <a href="contactus.html" class="fab" aria-label="Contact Us">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </a>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        /* Mobile Menu */
+        function toggleMenu() {
+            const drawer  = document.getElementById('navDrawer');
+            const overlay = document.getElementById('navOverlay');
+            const toggle  = document.querySelector('.menu-toggle');
+            drawer.classList.toggle('active');
+            overlay.classList.toggle('active');
+            toggle.classList.toggle('active');
+            document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+        }
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!link.classList.contains('products-toggle')) {
+                    if (document.getElementById('navDrawer').classList.contains('active')) toggleMenu();
+                }
+            });
+        });
+
+        /* Products Dropdown */
+        function toggleProducts(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            document.querySelector('.nav-item-dropdown').classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(e) {
+            const dropdown = document.querySelector('.nav-item-dropdown');
+            if (dropdown && !dropdown.contains(e.target)) dropdown.classList.remove('active');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const pd = document.querySelector('.products-dropdown');
+            if (pd) pd.addEventListener('click', e => e.stopPropagation());
+        });
+
+        /* Language Dropdown */
+        function toggleLang() {
+            document.getElementById('langDropdown').classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(e) {
+            const ld = document.getElementById('langDropdown');
+            if (ld && !ld.contains(e.target)) ld.classList.remove('active');
+        });
+
+        /* ESC closes everything */
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            const pd = document.querySelector('.nav-item-dropdown');
+            if (pd && pd.classList.contains('active')) pd.classList.remove('active');
+            if (document.getElementById('navDrawer').classList.contains('active')) toggleMenu();
+        });
+
+        /* Active language on load */
+        document.addEventListener('DOMContentLoaded', function() {
+            const path    = window.location.pathname;
+            const langMap = { '/en/': 'EN', '/ar/': 'AR', '/fr/': 'FR', '/de/': 'DE', '/es/': 'ES', '/it/': 'IT' };
+            let current   = 'EN';
+            for (let [url, code] of Object.entries(langMap)) {
+                if (path.startsWith(url)) current = code;
+            }
+            document.getElementById('currentLang').textContent = current;
+            document.querySelectorAll('.lang-link').forEach(link => {
+                link.classList.toggle('active', link.dataset.lang === current);
+            });
+        });
+
+        /* FAB Scroll */
+        function handleScroll() {
+            const fab       = document.querySelector('.fab');
+            const hero      = document.querySelector('.news-hero');
+            const preFooter = document.querySelector('.pre-footer');
+            if (!fab || !hero || !preFooter) return;
+            const isPastHero         = hero.getBoundingClientRect().bottom < 100;
+            const isPreFooterVisible = preFooter.getBoundingClientRect().top < window.innerHeight;
+            fab.classList.toggle('visible', isPastHero && !isPreFooterVisible);
+        }
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll);
+
+        /* Filter Logic */
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const articles   = document.querySelectorAll('.article-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filterValue = btn.getAttribute('data-filter');
+                articles.forEach(article => {
+                    const category = article.getAttribute('data-category');
+                    article.classList.toggle('hidden', filterValue !== 'all' && category !== filterValue);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
