@@ -194,7 +194,6 @@ button:focus-visible {
     padding: 0;
 }
 
-/* Nav Link with Hover Effect */
 .nav-link {
     color: #333;
     font-weight: 600;
@@ -232,7 +231,6 @@ button:focus-visible {
     width: 100%;
 }
 
-/* Products Dropdown Styling */
 .nav-item-dropdown {
     position: relative;
 }
@@ -258,7 +256,7 @@ button:focus-visible {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-10px);
     margin-top: 15px;
     background: white;
     border-radius: 12px;
@@ -267,7 +265,6 @@ button:focus-visible {
     min-width: 1000px;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-50%) translateY(-10px);
     transition: all 0.4s ease-in-out;
     z-index: 1001;
 }
@@ -275,9 +272,7 @@ button:focus-visible {
 .nav-item-dropdown.active .products-dropdown {
     opacity: 1;
     visibility: visible;
-    /* transform: translateX(-50%) translateY(0); */
-    transform: translateX(-50%) translateY(0); 
-
+    transform: translateX(-50%) translateY(0);
 }
 
 .products-grid-menu {
@@ -317,7 +312,6 @@ button:focus-visible {
     color: var(--primary-blue);
 }
 
-/* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -484,13 +478,11 @@ button:focus-visible {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-    /* box-shadow: 0 20px 40px rgba(0,0,0,0.3); */
     display: flex;
     justify-content: center;
-    /* background: #fff; */
-    /* min-height: 400px; */
 }
-.hero-img-wrapper img{
+
+.hero-img-wrapper img {
     width: 350px;
     height: 300px;
 }
@@ -723,7 +715,7 @@ button:focus-visible {
 }
 
 .ingredients-text p {
-    margin: 0px 0 15px 0 ;
+    margin: 0px 0 15px 0;
 }
 
 .badge {
@@ -764,7 +756,7 @@ button:focus-visible {
 }
 
 .tech-table {
-    width: 100%;
+    width: auto;
     border-collapse: collapse;
     min-width: 600px;
 }
@@ -793,33 +785,46 @@ button:focus-visible {
 
 /* ============================================
    PACKAGING SECTION
+   — Same card style as .product-card
    ============================================ */
 .packaging-grid {
     grid-template-columns: 1fr;
     gap: 20px;
 }
 
+/* الكارد الأساسي — نفس .product-card */
 .pack-item {
-    background: var(--bg-grey);
-    padding: 20px;
+    border: 1px solid #eee;
     border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
     text-align: center;
 }
 
-.pack-item img {
-    max-width: 210px;
-    max-height: 175px;
+.pack-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+/* الصورة — نفس .product-card img */
+.pack-item img {
+    width: 157px;
+    height: 132px;
+    object-fit: cover;
+}
+
+/* الـ Caption — مثل .product-info */
 .pack-caption {
-    margin-top: 15px;
-    font-weight: 600;
+    padding: 15px;
+    font-weight: 700;
     color: var(--primary-blue);
     font-size: var(--fs-base);
+    margin-top: 0;
 }
 
 .pack-caption small {
@@ -1135,6 +1140,7 @@ button:focus-visible {
     color: var(--accent-yellow);
     opacity: 1;
 }
+
 .footer-title {
     color: var(--accent-yellow);
     padding: 1rem 0;
@@ -1234,7 +1240,6 @@ button:focus-visible {
    RESPONSIVE - MOBILE
    ============================================ */
 @media (max-width: 991px) {
-    /* Navbar */
     .menu-toggle {
         display: flex;
     }
@@ -1295,7 +1300,6 @@ button:focus-visible {
         transform: rotate(-45deg) translate(7px, -6px);
     }
 
-    /* Products Dropdown - Mobile */
     .products-dropdown {
         top: 0px;
         position: relative;
@@ -1326,7 +1330,6 @@ button:focus-visible {
         height: 120px;
     }
 
-    /* Language Dropdown */
     .lang-dropdown {
         width: 100%;
         margin-top: 15px;
@@ -1356,28 +1359,24 @@ button:focus-visible {
         margin-left: auto;
     }
 
-    /* Ingredients */
-
-    
     .content-retail > svg {
         top: -45px;
     }
-
 }
+
 @media (min-width: 992px) {
     .nav-container {
-        justify-content: flex-start; /* ← الحل الأساسي */
-        gap: 60px; /* المسافة الثابتة بين كل العناصر */
+        justify-content: flex-start;
+        gap: 60px;
     }
     
     .nav-drawer {
-        margin-left: auto; /* عشان قائمة اللغة تروح لليمين */
-        gap: 60px; /* نفس المسافة */
+        margin-left: auto;
+        gap: 60px;
     }
 }
 
 @media (max-width: 768px) {
-    /* Hero */
     .hero-title {
         font-size: var(--fs-4xl);
     }
@@ -1386,12 +1385,10 @@ button:focus-visible {
         grid-template-columns: 1fr;
     }
 
-    /* Products Grid - Tablet */
     .products-grid-menu {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Allergens */
     .allergen-14-grid {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -1400,7 +1397,6 @@ button:focus-visible {
         font-size: var(--fs-2xl);
     }
 
-    /* Footer */
     .footer-bottom {
         justify-content: space-between;
         text-align: left;
@@ -1409,7 +1405,8 @@ button:focus-visible {
     .footer-links a {
         margin-right: 0;
     }
-    .hero-img-wrapper img{
+
+    .hero-img-wrapper img {
         width: 250px;
         height: 200px;
     }
@@ -1437,8 +1434,9 @@ button:focus-visible {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .content-retail {
-                margin-top: 30px;
+        margin-top: 30px;
     }
     
     .content-retail,
@@ -1473,13 +1471,18 @@ button:focus-visible {
         grid-template-columns: 1fr 1fr;
     }
 
+    /* الـ Packaging: 2 كولم على تابلت، 3 على ديسكتوب */
     .packaging-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (min-width: 900px) {
     .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .packaging-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 }
@@ -1499,6 +1502,7 @@ button:focus-visible {
     .products-grid-menu {
         grid-template-columns: 1fr;
     }
+
     .nav-drawer {
         max-width: 320px;
     }
