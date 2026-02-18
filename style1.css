@@ -756,7 +756,7 @@ button:focus-visible {
 }
 
 .tech-table {
-    width: auto;
+    width: 100%;
     border-collapse: collapse;
     min-width: 600px;
 }
@@ -770,7 +770,7 @@ button:focus-visible {
 }
 
 .tech-table td {
-    padding: 15px;
+    padding: 10px;
     border-bottom: 1px solid #eee;
     font-size: var(--fs-base);
 }
